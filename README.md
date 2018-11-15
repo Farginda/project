@@ -1,2 +1,2 @@
-# project
+# Project
 Final app project
