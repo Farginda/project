@@ -19,7 +19,7 @@ Door een app te maken die zich voornamelijk richt op het bijhouden van de _inter
 
 ## Prerequisites
 #### Data Sources
-* Informatie _Intermittent Fasting_ :
+* Lijst met verdere informatie _Intermittent Fasting_ :
   * https://www.healthline.com/nutrition/10-health-benefits-of-intermittent-fasting
   * http://time.com/5354498/is-intermittent-fasting-healthy/
   * https://www.health.harvard.edu/blog/intermittent-fasting-surprising-update-2018062914156
