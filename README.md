@@ -27,12 +27,12 @@ Door een app te maken die zich voornamelijk richt op het bijhouden van de _inter
   * https://www.dietdoctor.com/intermittent-fasting
   
 #### External Components
-* Online API lijst
+* Online API lijst: https://ide50-farginda.cs50.io:8080/list
 
 #### Similair Apps
 Soortgelijke apps hebben vaak een strak design en maken gebruik van een uniek ingebouwde timer. Met de kennis van afgelopen maanden is het mogelijk om een soortgelijke app te maken, maar om een unieke design te maken kan nog lastig worden.
 
 #### Hardest Parts
-* Timer (laten lopen op de achtergrond)
-* Notificaties
-* Vergelijking andere gebruikers
+* De timer moet altijd op de achtergrond kunnen lopen zodra deze door de gebruiker is gestart.
+* De gebruiker kan notificaties ontvangen (nog niet eerder in de afgelopen maanden gedaan).
+* De werking en het tonen van de online API lijst is ingewikkeld om te verwerken in een app.
