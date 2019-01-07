@@ -6,7 +6,7 @@ Tegenwoordig vindt men het steeds belangrijker om gezond te leven. Hierom zijn e
 ## Solution
 Door een app te maken die zich voornamelijk richt op het bijhouden van de _intermittent fasting_ van de gebruiker en waarbij de gebruiker zijn/haar resultaten kan delen en vergelijken met andere gebruikers hoop ik dat de app kan bijdragen aan een leuke en vernieuwende manier van gezond leven.
 
-<img src="https://github.com/Farginda/project/blob/master/doc/Schermafbeelding%202019-01-07%20om%2012.31.32.png" width="110%" height="110%"/>
+<img src="https://github.com/Farginda/project/blob/master/doc/Schermafbeelding%202019-01-07%20om%2012.31.32.png" width="130%" height="130%"/>
 
 #### Main Features
 * Aantrekkelijk beginscherm (MVP)
