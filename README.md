@@ -1,14 +1,38 @@
-# Final App Project
+# Final App Project: "FAST & GO"
 
-Tegenwoordig vindt men het steeds belangrijker om gezond te leven. Hierom zijn er meerdere apps op de markt die in verschillende opzichten helpen om gezonder te leven. Er zijn echter weinig apps waarbij die verschillende elementen in 1 opzicht bijgehouden kunnen worden.
+## Problem Statement
+Tegenwoordig vindt men het steeds belangrijker om gezond te leven. Hierom zijn er meerdere apps op de markt die in verschillende opzichten helpen om gezonder te leven. Er is echter een fenomeen genaamd 'intermittent fasting' die vooral in Nederland nog onbekend is, maar die sterk kan bijdragen aan een gezonder leven.
 
-Voor het eindproject zou ik een 'Total Health' app willen maken die de gebruiker op verschillende wijze kan helpen om gezonder te leven. Hierbij lijkt het mij interessant om te kijken naar de volgende elementen:
+## Solution
+Door een app te maken die zich voornamelijk richt op het bijhouden van de _intermittent fasting_ van de gebruiker en waarbij de gebruiker zijn/haar resultaten kan delen en vergelijken met andere gebruikers hoop ik dat de app kan bijdragen aan een leuke en vernieuwende manier van gezond leven.
 
-- Food tracker: De gebruiker kan hier al zijn/haar genuttigde voedsel en de bijbehordende calorieen/nutrienteninformatie per                   dag bijhouden.
-- Water tracker: De gebruiker kan hier zijn/haar waterinname per dag bijhouden.
-- Workout tracker: De gebruiker kan zijn/haar uitgevoerde workouts bijhouden (verbrandde calorieen/vet) (+ database voor                          overzicht workouts(?))
-- Intermittent fasting tracker: De gebruiker kan zijn/haar fasting bijhouden. (In Nederland is dit een nog vrij onbekend                                       fenomeen. Om deze reden zou ik dit graag willen implementeren.)
+FOTO
 
-Aan het eind van de dag krijgt de gebruiker een notificatie waarbij al zijn/haar 'accomplishments of the day' kan worden ingezien.
+#### Main Features
+* Aantrekkelijk beginscherm (MVP)
+* Keuze van gebruiker (MVP)
+* Timer gebasseerd op keuze gebruiker (MVP)
+* Mogelijkheid voor extra informatie
+* Eindscherm met behaalde resultaten gebruiker (MVP)
+  * Mogelijkheid om resultaat te delen met online platformen
+  * Mogelijkheid om resultaat te vergelijken met andere gebruikers (MVP)
 
-De doelgroep voor deze app zijn is iedereen (jong en oud) die geinteresseerd is in een gezonder leven en die ervan houdt om alles wat hierbij komt kijken bij te houden (als motivatie).
+## Prerequisites
+#### Data Sources
+* Informatie _Intermittent Fasting_ :
+  * https://www.healthline.com/nutrition/10-health-benefits-of-intermittent-fasting
+  * http://time.com/5354498/is-intermittent-fasting-healthy/
+  * https://www.health.harvard.edu/blog/intermittent-fasting-surprising-update-2018062914156
+  * https://www.mindbodygreen.com/articles/why-intermittent-fasting-is-the-best-thing-to-ever-happen-to-your-metabolism
+  * https://www.dietdoctor.com/intermittent-fasting
+  
+#### External Components
+* Online API lijst
+
+#### Similair Apps
+Soortgelijke apps hebben vaak een strak design en maken gebruik van een uniek ingebouwde timer. Met de kennis van afgelopen maanden is het mogelijk om een soortgelijke app te maken, maar om een unieke design te maken kan nog lastig worden.
+
+#### Hardest Parts
+* Timer (laten lopen op de achtergrond)
+* Notificaties
+* Vergelijking andere gebruikers
