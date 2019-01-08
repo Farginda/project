@@ -9,7 +9,7 @@ Door een app te maken die zich voornamelijk richt op het bijhouden van de _inter
 <img src="https://github.com/Farginda/project/blob/master/doc/Schermafbeelding%202019-01-07%20om%2012.31.32.png" width="130%" height="130%"/>
 
 #### Main Features
-* Aantrekkelijk beginscherm (MVP)
+* Aantrekkelijke beginscherm (MVP)
 * Keuze van gebruiker (MVP)
 * Timer gebasseerd op keuze gebruiker (MVP)
 * Mogelijkheid voor extra informatie
