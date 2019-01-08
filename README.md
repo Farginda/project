@@ -37,3 +37,4 @@ Soortgelijke apps hebben vaak een strak design en maken gebruik van een uniek in
 * De timer moet altijd op de achtergrond kunnen lopen zodra deze door de gebruiker is gestart.
 * De gebruiker kan notificaties ontvangen (nog niet eerder in de afgelopen maanden gedaan).
 * De werking en het tonen van de online API lijst is ingewikkeld om te verwerken in een app.
+* De werking van de _Food Tracker_ API.
