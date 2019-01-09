@@ -1,4 +1,4 @@
-# Final App Project: "FAST & GO"
+# Final App Project: "GO FAST"
 
 ## Problem Statement
 Tegenwoordig vindt men het steeds belangrijker om gezond te leven. Hierom zijn er meerdere apps op de markt die in verschillende opzichten helpen om gezonder te leven. Er is echter een fenomeen genaamd 'intermittent fasting' die vooral in Nederland nog onbekend is, maar die sterk kan bijdragen aan een gezonder leven.
