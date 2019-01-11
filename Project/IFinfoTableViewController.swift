@@ -24,11 +24,11 @@ class IFinfoTableViewController: UITableViewController {
         return list.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = list(indexPath.row)
-        return cell
-    }
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
+//        cell.textLabel?.text = list(indexPath.row)
+//        return cell
+//    }
  
 
     /*
