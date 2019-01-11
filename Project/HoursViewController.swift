@@ -16,6 +16,9 @@ class HoursViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-
+    // outlets
+    @IBOutlet weak var goalLabel: UILabel!
+    @IBOutlet weak var hoursPicker: UIPickerView!
+    @IBOutlet weak var goButton: UIButton!
+    
 }

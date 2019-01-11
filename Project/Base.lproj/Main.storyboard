@@ -61,7 +61,7 @@
                                 <rect key="frame" x="26" y="526" width="322" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Start!"/>
+                                <state key="normal" title="Let's GOFAST!"/>
                                 <connections>
                                     <segue destination="MNj-aa-xoo" kind="show" id="DkC-Wn-JC3"/>
                                 </connections>
@@ -74,6 +74,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1fi-2v-Ik1"/>
                     </view>
+                    <connections>
+                        <outlet property="goButton" destination="jUG-jH-Let" id="WSt-VH-uce"/>
+                        <outlet property="goalLabel" destination="gtl-ZX-fJq" id="Vrq-yj-Wnu"/>
+                        <outlet property="hoursPicker" destination="sII-4G-ssP" id="QWA-P3-btE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cg7-Hx-SqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,23 +100,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPD-UN-91H">
-                                <rect key="frame" x="171" y="375" width="32" height="30"/>
+                                <rect key="frame" x="171" y="374" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Stop">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="stopButtonPressed:" destination="MNj-aa-xoo" eventType="touchUpInside" id="BEa-ii-7ie"/>
                                     <segue destination="zn7-6F-zO2" kind="show" id="g7P-zH-8Gn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gS1-uw-tSt">
                                 <rect key="frame" x="321" y="31" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Info"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6KY-XV-ltR">
-                                <rect key="frame" x="16" y="31" width="46" height="30"/>
+                                <rect key="frame" x="11" y="31" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Settings"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRS-nB-GUx">
                                 <rect key="frame" x="149" y="593" width="77" height="30"/>
@@ -121,12 +128,32 @@
                                     <segue destination="j0A-C7-KcD" kind="show" id="2xL-Lm-wjB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZC-2T-W6C">
+                                <rect key="frame" x="80" y="374" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="MNj-aa-xoo" eventType="touchUpInside" id="57m-RL-ae2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2X-Cl-Mb9">
+                                <rect key="frame" x="253" y="374" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="MNj-aa-xoo" eventType="touchUpInside" id="dDN-0d-tNm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DJr-PJ-Tg7"/>
                     </view>
                     <connections>
                         <outlet property="FoodInspoButton" destination="NRS-nB-GUx" id="ZdM-kt-vmy"/>
+                        <outlet property="infoButton" destination="gS1-uw-tSt" id="w2v-WV-9zD"/>
+                        <outlet property="resetTimerButton" destination="P2X-Cl-Mb9" id="BBg-r5-Eqf"/>
+                        <outlet property="settingsButton" destination="6KY-XV-ltR" id="kKO-tk-6fa"/>
+                        <outlet property="startTimerbutton" destination="RZC-2T-W6C" id="x9H-3j-hjY"/>
                         <outlet property="stopTimerButton" destination="KPD-UN-91H" id="ktM-Bz-X7b"/>
                         <outlet property="timerLabel" destination="Wap-fH-xFw" id="lfr-qc-rXU"/>
                     </connections>
