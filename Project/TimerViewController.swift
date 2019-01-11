@@ -64,6 +64,7 @@ class TimerViewController: UIViewController {
     @objc func updateTimer() {
         if seconds < 1 {
             timer.invalidate()
+            timer.fire() // check?
             // SEND NOTIFICATION OR ALERT
         } else {
             seconds = seconds - 1
