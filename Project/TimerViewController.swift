@@ -16,6 +16,9 @@ class TimerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    @IBOutlet weak var stopTimerButton: UIButton!
+    @IBOutlet weak var FoodInspoButton: UIButton!
+    
 }
