@@ -11,3 +11,7 @@ Vandaag heb ik mijn prototype een beetje aangepast en afgemaakt. Daarnaast heb i
 ## Day 5: 11-01-2019
 
 Vandaag ben ik begonnen aan het maken van de timer. De timer werkt, maar ik moet nog de _userinfo_ verwerken. De timer kan lopen en resetten, maar er kan nog niet een bepaalde tijd worden ingesteld. Verder heb ik een nieuwe _tableviewcontroller_ gemaakt voor het verlenen van extra informatie over _intermittent fasting_. Hierbij krijg ik nog een error die ik nog niet kan verwerken.
+
+<img src="https://github.com/Farginda/project/blob/master/doc/Schermafbeelding%202019-01-11%20om%2014.09.48.png" width="30%" height="30%"/>
+
+<img src="https://github.com/Farginda/project/blob/master/doc/Schermafbeelding%202019-01-11%20om%2014.10.22.png" width="130%" height="130%"/>
