@@ -12,13 +12,16 @@ class HoursViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     // outlets
     @IBOutlet weak var goalLabel: UILabel!
-    @IBOutlet weak var hoursPicker: UIPickerView!
+    @IBOutlet weak var hoursPicker: UIDatePicker!
     @IBOutlet weak var goButton: UIButton!
+    
+    @IBAction func hoursPicked(_ sender: UIDatePicker) {
+        
+    
+    }
     
 }
