@@ -1,4 +1,4 @@
-# Style Guide
+# Style Guide Team Apps I
 
 * Duidelijk herkenbare namen variabelen
 * Gebruik van commands boven elke functie
