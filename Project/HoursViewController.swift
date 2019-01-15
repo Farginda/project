@@ -20,8 +20,19 @@ class HoursViewController: UIViewController {
     @IBOutlet weak var goButton: UIButton!
     
     @IBAction func hoursPicked(_ sender: UIDatePicker) {
-        
     
+    }
+    
+    @IBAction func startFastButton(_ sender: UIButton) {
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "hoursSegue" {
+            let timerViewController = segue.destination as! TimerViewController
+
+            
+        }
     }
     
 }

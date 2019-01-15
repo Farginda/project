@@ -12,8 +12,6 @@ class TimerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     var seconds = 60
@@ -36,7 +34,6 @@ class TimerViewController: UIViewController {
             runTimer()
             self.startTimerbutton.isEnabled = false
         }
-        
     }
     
     // stop timer
@@ -52,7 +49,6 @@ class TimerViewController: UIViewController {
         isTimerRunning = false
         
     }
-    
     
     // initializing timer
     func runTimer() {
