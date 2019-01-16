@@ -21,3 +21,7 @@ Vandaag ben ik begonnen aan het maken van de timer. De timer werkt, maar ik moet
 Vandaag heb ik de _PickerView_ veranderd naar een _DatePickerView_, aangezien ik dit wil gebruiken voor het instellen van de tijd. Met de _DatePickerView_ kan dit makkelijker worden ingesteld. De gebruiker kan hiermee het aantal gewenste uren (en kwartieren) vaststellen, waarmee de timer kan worden gestart. Waar ik vandaag nog in de knoop mee zit, is dat de gekozen _userinfo_ door middel van een _prepare for segue_ doorgegeven moet worden aan de volgende _view_.
 
 Daarnaast is het een vervelend probleem dat ik online informatie tegenkom waarbij er een oudere versie van Xcode wordt gebruikt. Het is is lastig te vinden hoe ik dit in mijn huidige versie van Xcode kan veranderen.
+
+## Day 7: 15-01-2019
+
+Vandaag heb ik geprobeerd om de timer verder uit te breiden. Daarnaast heb ik mijn Food API veranderd naar een andere link, omdat mijn vorige API ingewikkeld in gebruik was. Verder heb ik lang gewacht op hulp (3+ uur), die ik uiteindelijk niet heb gekregen. Ik heb dus een aantal vragen waar ik nog steeds mee zit en hulp bij nodig heb.
