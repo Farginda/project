@@ -60,7 +60,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="Jqy-54-n1D">
-                                <rect key="frame" x="27.5" y="225" width="320" height="216"/>
+                                <rect key="frame" x="28" y="225" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="569176009.37879503">
                                     <!--2019-01-14 16:26:49 +0000-->
                                 </date>
@@ -324,6 +324,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Share &amp; Compare!"/>
                                 <connections>
+                                    <action selector="SCButtonPressed:" destination="zn7-6F-zO2" eventType="touchUpInside" id="Awm-dE-C6q"/>
                                     <segue destination="l7a-o3-eod" kind="show" id="SUC-qo-ntP"/>
                                 </connections>
                             </button>
@@ -347,18 +348,36 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gnm-IF-Hh1">
+                                <rect key="frame" x="27" y="415" width="332" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter your full name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGL-vX-8Dg">
+                                <rect key="frame" x="27" y="354" width="332" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cf7-bc-AuR"/>
                     </view>
+                    <connections>
+                        <outlet property="congratsLabel" destination="YbE-Tw-Ptp" id="GaX-ea-1ZQ"/>
+                        <outlet property="nameTextField" destination="Gnm-IF-Hh1" id="s4d-u9-t5v"/>
+                        <outlet property="shareCompareButton" destination="wxv-2f-3Ut" id="RGq-Yf-LvC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfB-Af-pei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3079" y="145"/>
+            <point key="canvasLocation" x="3077.5999999999999" y="144.3778110944528"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="g7P-zH-8Gn"/>
         <segue reference="Ahe-Vk-V2K"/>
     </inferredMetricsTieBreakers>
 </document>
