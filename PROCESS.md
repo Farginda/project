@@ -25,3 +25,7 @@ Daarnaast is het een vervelend probleem dat ik online informatie tegenkom waarbi
 ## Day 7: 15-01-2019
 
 Vandaag heb ik geprobeerd om de timer verder uit te breiden. Daarnaast heb ik mijn Food API veranderd naar een andere link, omdat mijn vorige API ingewikkeld in gebruik was. Verder heb ik lang gewacht op hulp (3+ uur), die ik uiteindelijk niet heb gekregen. Ik heb dus een aantal vragen waar ik nog steeds mee zit en hulp bij nodig heb.
+
+## Dag 8: 16-01-2019
+
+Vandaag heb ik de timer zo goed mogelijk lopend gekregen. Er zit echter alleen nog een bug bij het meegeven van de _userinput_, want er komen steeds een aantal seconden bovenop de gekozen uren bij. Verder ben ik bezig geweest de API werkend krijgen, maar daar zit ik ook nog vast op bepaalde plekken. De Food API heeft namelijk bij een request een header nodig. Verder ben ik begonnen aan de 'scores' _tableview_, waarbij de rester API wordt gebruikt. 
