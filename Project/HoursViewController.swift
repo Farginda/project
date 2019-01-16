@@ -30,9 +30,10 @@ class HoursViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "hoursSegue" {
             let timerViewController = segue.destination as! TimerViewController
-
-            
+            print(hoursPicker.countDownDuration)
+//            let sec = Int(timerViewController.seconds)
+            timerViewController.seconds = hoursPicker.countDownDuration
         }
     }
-    
+
 }

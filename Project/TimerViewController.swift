@@ -10,11 +10,14 @@ import UIKit
 
 class TimerViewController: UIViewController {
 
+    let foodHelper = FoodAPIHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        runTimer()
     }
     
-    var seconds = 60
+    var seconds: Double!
     var timer = Timer()
     var isTimerRunning = false
     
@@ -24,30 +27,10 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var FoodInspoButton: UIButton!
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var startTimerbutton: UIButton!
-    @IBOutlet weak var resetTimerButton: UIButton!
-    
-    // start timer
-    @IBAction func startButtonPressed(_ sender: UIButton) {
-        runTimer()
-        if isTimerRunning == false {
-            runTimer()
-            self.startTimerbutton.isEnabled = false
-        }
-    }
     
     // stop timer
     @IBAction func stopButtonPressed(_ sender: UIButton) {
         timer.invalidate()
-    }
-    
-    // reset timer
-    @IBAction func resetButtonTapped(_ sender: UIButton) {
-        timer.invalidate()
-        seconds = 60
-        timerLabel.text = timeString(time: TimeInterval(seconds))
-        isTimerRunning = false
-        
     }
     
     // initializing timer
@@ -69,13 +52,28 @@ class TimerViewController: UIViewController {
     }
     
     // puts timer in hours : minutes : seconds
-    func timeString(time:TimeInterval) -> String {
+    func timeString(time: TimeInterval) -> String {
+//        let hours = self.seconds * 3600
+//        let minutes = self.seconds * 60
+//        let seconds = self.seconds
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
-    
-    
-}
 
+    func updateUI(with foodHelper: [FoodAPIHelper]) {
+        DispatchQueue.main.async {
+            self.foodHelper = foodHelper
+            self.reloadData()
+        }
+    }
+    @IBAction func foodInspoButtonPressed(_ sender: UIButton) {
+        FoodAPIHelper.shared.getFood(completion:) { ([Food]?) in
+            if let foodHelper = foodHelper {
+                self.updateUI(with: foodHelper)
+            }
+        }
+    }
+
+}
