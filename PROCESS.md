@@ -29,3 +29,7 @@ Vandaag heb ik geprobeerd om de timer verder uit te breiden. Daarnaast heb ik mi
 ## Dag 8: 16-01-2019
 
 Vandaag heb ik de timer zo goed mogelijk lopend gekregen. Er zit echter alleen nog een bug bij het meegeven van de _userinput_, want er komen steeds een aantal seconden bovenop de gekozen uren bij. Verder ben ik bezig geweest de API werkend krijgen, maar daar zit ik ook nog vast op bepaalde plekken. De Food API heeft namelijk bij een request een header nodig. Verder ben ik begonnen aan de 'scores' _tableview_, waarbij de rester API wordt gebruikt. 
+
+## Day 9: 17-01-2019
+
+Vandaag heb ik verdergewerkt aan de API en de viewcontrollers. Ik heb de layout van de tableviewcontroller zo goed mogelijk gemaakt. Het probleem waar ik nu nog tegenaan loop is dat de data van de API niet wordt weergegeven in de tableview. Ik heb de API request ook wat veranderd en een andere struct gemaakt, maar nog zonder succes. Daarnaast heb ik de navigatie binnen de app een beetje veranderd voor een betere gebruikservaring. 
