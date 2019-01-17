@@ -53,9 +53,6 @@ class TimerViewController: UIViewController {
     
     // puts timer in hours : minutes : seconds
     func timeString(time: TimeInterval) -> String {
-//        let hours = self.seconds * 3600
-//        let minutes = self.seconds * 60
-//        let seconds = self.seconds
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
@@ -68,12 +65,10 @@ class TimerViewController: UIViewController {
 //            reloadData()
 //        }
 //    }
-//    @IBAction func foodInspoButtonPressed(_ sender: UIButton) {
-//        FoodAPIHelper.shared.getFood(completion:) { ([Food]?) in
-//            if let foodHelper = foodHelper {
-//                self.updateUI(with: foodHelper)
-//            }
-//        }
-//    }
+    
+    @IBAction func foodInspoButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "FoodApiSegue", sender: self)
+    }
 
+    
 }

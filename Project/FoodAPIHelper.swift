@@ -20,29 +20,49 @@ class FoodAPIHelper {
 //    let url = NSURL(string: "https://trackapi.nutritionix.com/v2/search/instant&appId=01f36468&appKey=ca614ada16fcf14952f6b85ea19cc298")!
     
     // GET request FOODAPI
-//    func getFood(completion: @escaping ([Food]?) -> Void) {
+    func getFood(completion: @escaping ([Food]?) -> Void) {
         let string = "https://trackapi.nutritionix.com/v2/search/instant"
         let url = NSURL(string: string)
         let request = NSMutableURLRequest(url: url! as URL)
-        
-        // set values for user id and user key
         request.setValue("01f36468", forHTTPHeaderField: "x-app-id")
         request.setValue("ca614ada16fcf14952f6b85ea19cc298", forHTTPHeaderField: "x-app-key")
-        
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let session = URLSession.shared
-        
+        print("hallo")
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
-            if let res = response as? HTTPURLResponse {
-                print("res: \(String(describing: res))")
-                print("Response: \(String(describing: response))")
-            } else{
-                print("Error: \(String(describing: error))")
+            do {
+                if let data = data {
+                    let food = try JSONDecoder().decode([Food].self, from: data)
+                    completion(food)
+                    print(data)
+                    print("!!!!!")
+                } else {
+                    completion(nil)
+                }
+            } catch {
+                print(error)
+            }
+        }
+        task.resume()
+    }
+
+    // get scores
+    func getScores(completion: @escaping ([Score]?) -> Void) {
+        let url = URL(string: "https://ide50-farginda.legacy.cs50.io:8080/list")!
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            do {
+                if let data = data {
+                    let score = try JSONDecoder().decode([Score].self, from: data)
+                    completion(score)
+                } else {
+                    completion(nil)
+                }
+            } catch {
+                print(error)
             }
         }
         task.resume()
     }
 
 }
-

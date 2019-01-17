@@ -9,21 +9,19 @@
 import Foundation
 
 // food struct
-//struct Food: Codable {
-//    var name: String
-//    var image: NSNull
-//    var id: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case name = "food_name"
-//        case image
-//        case id = "tag_id"
-//    }
-//}
-//
-//struct FoodList: Codable {
-//    let common: [Food]
-//}
+struct Food: Codable {
+    var name: String
+    var id: String
+
+    enum CodingKeys: String, CodingKey {
+        case name = "food_name"
+        case id = "tag_id"
+    }
+}
+
+struct FoodList: Codable {
+    let common: [Food]
+}
 
 
 

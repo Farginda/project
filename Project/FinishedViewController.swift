@@ -17,16 +17,16 @@ class FinishedViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBAction func SCButtonPressed(_ sender: UIButton) {
-        let url = URL(string: "https://ide50-farginda.cs50.io:8080/list")!
-        var request = URLRequest(url: url)
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        let postString = "name=\(nameTextField.text!)&score=\(seconds)"
-        request.httpBody = postString.data(using: .utf8)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            self.viewScores() VIEWSCORES
-        }
-        task.resume()
+//        let url = URL(string: "https://ide50-farginda.cs50.io:8080/list")!
+//        var request = URLRequest(url: url)
+//        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//        request.httpMethod = "POST"
+//        let postString = "name=\(nameTextField.text!)&score=\(seconds)"
+//        request.httpBody = postString.data(using: .utf8)
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+////            self.viewScores() VIEWSCORES
+//        }
+//        task.resume()
         
     }
     
