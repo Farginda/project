@@ -20,12 +20,15 @@ class FoodAPIHelper {
 //    let url = NSURL(string: "https://trackapi.nutritionix.com/v2/search/instant&appId=01f36468&appKey=ca614ada16fcf14952f6b85ea19cc298")!
     
     // GET request FOODAPI
-    func getFood(completion: @escaping ([Food]?) -> Void) {
+//    func getFood(completion: @escaping ([Food]?) -> Void) {
         let string = "https://trackapi.nutritionix.com/v2/search/instant"
         let url = NSURL(string: string)
         let request = NSMutableURLRequest(url: url! as URL)
+        
+        // set values for user id and user key
         request.setValue("01f36468", forHTTPHeaderField: "x-app-id")
         request.setValue("ca614ada16fcf14952f6b85ea19cc298", forHTTPHeaderField: "x-app-key")
+        
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let session = URLSession.shared
@@ -40,4 +43,6 @@ class FoodAPIHelper {
         }
         task.resume()
     }
+
+}
 

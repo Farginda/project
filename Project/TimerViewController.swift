@@ -10,7 +10,7 @@ import UIKit
 
 class TimerViewController: UIViewController {
 
-    let foodHelper = FoodAPIHelper()
+    var foodHelper = FoodAPIHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,18 +62,18 @@ class TimerViewController: UIViewController {
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
 
-    func updateUI(with foodHelper: [FoodAPIHelper]) {
-        DispatchQueue.main.async {
-            self.foodHelper = foodHelper
-            self.reloadData()
-        }
-    }
-    @IBAction func foodInspoButtonPressed(_ sender: UIButton) {
-        FoodAPIHelper.shared.getFood(completion:) { ([Food]?) in
-            if let foodHelper = foodHelper {
-                self.updateUI(with: foodHelper)
-            }
-        }
-    }
+//    func updateUI(with foodHelper: [FoodAPIHelper]) {
+//        DispatchQueue.main.async {
+//            self.foodHelper = foodHelper
+//            reloadData()
+//        }
+//    }
+//    @IBAction func foodInspoButtonPressed(_ sender: UIButton) {
+//        FoodAPIHelper.shared.getFood(completion:) { ([Food]?) in
+//            if let foodHelper = foodHelper {
+//                self.updateUI(with: foodHelper)
+//            }
+//        }
+//    }
 
 }
