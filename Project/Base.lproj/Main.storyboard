@@ -130,7 +130,7 @@
                                 </state>
                                 <connections>
                                     <action selector="stopButtonPressed:" destination="MNj-aa-xoo" eventType="touchUpInside" id="BEa-ii-7ie"/>
-                                    <segue destination="zn7-6F-zO2" kind="show" id="g7P-zH-8Gn"/>
+                                    <segue destination="zn7-6F-zO2" kind="show" identifier="FinishedSegue" id="g7P-zH-8Gn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6KY-XV-ltR">
@@ -326,7 +326,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NiO-gG-vir">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="NiO-gG-vir">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NiO-gG-vir" id="XPS-73-LqT">
@@ -359,7 +359,7 @@
                                 <state key="normal" title="Share &amp; Compare!"/>
                                 <connections>
                                     <action selector="SCButtonPressed:" destination="zn7-6F-zO2" eventType="touchUpInside" id="Awm-dE-C6q"/>
-                                    <segue destination="l7a-o3-eod" kind="show" id="SUC-qo-ntP"/>
+                                    <segue destination="l7a-o3-eod" kind="show" identifier="CompareSegue" id="SUC-qo-ntP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congrats text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbE-Tw-Ptp">
@@ -412,9 +412,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="goC-iS-0cj"/>
         <segue reference="33l-nV-sPX"/>
-        <segue reference="gpt-NZ-oAd"/>
+        <segue reference="DkC-Wn-JC3"/>
         <segue reference="Ahe-Vk-V2K"/>
     </inferredMetricsTieBreakers>
 </document>

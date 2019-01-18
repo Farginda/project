@@ -8,43 +8,61 @@
 
 import Foundation
 
-// food struct
 struct Food: Codable {
-    var index: String
-    var type: String
-    var id: String
-    var score: Int
+    let totalHits, maxScore: Int
+    let hits: [Hit]
     
-    struct Fields {
-        var itemID: String
-        var itemName: String
-        var brandID: String
-        var brandName: String
-        var calories: Double
-        var servingQuantity: Int
-        var servingUnit: String
+    enum CodingKeys: String, CodingKey {
+        case totalHits = "total_hits"
+        case maxScore = "max_score"
+        case hits
     }
+}
+
+struct Hit: Codable {
+    let index: String
+    let type: TypeEnum
+    let id: String
+    let score: Int
+    let fields: Fields
+    
     enum CodingKeys: String, CodingKey {
         case index = "_index"
         case type = "_type"
         case id = "_id"
-        case score
-        case itemID = "item_id"
-        case itemName = "item_name"
-        case brandID = "brand_id"
-        case brandName = "brand_name"
-        case calories = "nf_calories"
-        case servingQuantity = "nf_serving_size_qty"
-        case servingUnit = "nf_serving_size_unit"
+        case score = "_score"
+        case fields
     }
 }
 
-struct FoodList: Codable {
-    let hits: [Food]
-    let fields: [Fields]
+struct Fields: Codable {
+    let itemID, itemName: String
+    let brandName: BrandName
+    let nfCalories: Double
+    let nfServingSizeQty: Int
+    let nfServingSizeUnit: NfServingSizeUnit
+    
+    enum CodingKeys: String, CodingKey {
+        case itemID = "item_id"
+        case itemName = "item_name"
+        case brandName = "brand_name"
+        case nfCalories = "nf_calories"
+        case nfServingSizeQty = "nf_serving_size_qty"
+        case nfServingSizeUnit = "nf_serving_size_unit"
+    }
 }
 
+enum BrandName: String, Codable {
+    case nutritionix = "Nutritionix"
+}
 
+enum NfServingSizeUnit: String, Codable {
+    case serving = "serving"
+}
+
+enum TypeEnum: String, Codable {
+    case item = "item"
+}
 
 
 

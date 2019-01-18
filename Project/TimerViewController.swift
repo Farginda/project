@@ -41,12 +41,12 @@ class TimerViewController: UIViewController {
     
     // update timer with decreasing seconds
     @objc func updateTimer() {
-        if seconds < 1 {
+        if seconds < 1.0 {
             timer.invalidate()
             timer.fire() // check?
             // SEND NOTIFICATION OR ALERT
         } else {
-            seconds = seconds - 1
+            seconds = seconds - 1.0
             timerLabel.text = timeString(time: TimeInterval(seconds))
         }
     }
@@ -58,17 +58,15 @@ class TimerViewController: UIViewController {
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
-
-//    func updateUI(with foodHelper: [FoodAPIHelper]) {
-//        DispatchQueue.main.async {
-//            self.foodHelper = foodHelper
-//            reloadData()
-//        }
-//    }
     
     @IBAction func foodInspoButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "FoodApiSegue", sender: self)
     }
-
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FinishedSegue" {
+            let finishedViewController = segue.destination as! FinishedViewController
+            finishedViewController.seconds = seconds
+        }
+    }
 }

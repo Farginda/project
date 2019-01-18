@@ -20,7 +20,6 @@ class HoursViewController: UIViewController {
     @IBOutlet weak var goButton: UIButton!
     
     @IBAction func hoursPicked(_ sender: UIDatePicker) {
-    
     }
     
     @IBAction func startFastButton(_ sender: UIButton) {

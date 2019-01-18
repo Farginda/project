@@ -17,33 +17,40 @@ class FinishedViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBAction func SCButtonPressed(_ sender: UIButton) {
-//        let url = URL(string: "https://ide50-farginda.cs50.io:8080/list")!
-//        var request = URLRequest(url: url)
-//        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-//        request.httpMethod = "POST"
-//        let postString = "name=\(nameTextField.text!)&score=\(seconds)"
-//        request.httpBody = postString.data(using: .utf8)
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-////            self.viewScores() VIEWSCORES
-//        }
-//        task.resume()
+        let url = URL(string: "https://ide50-farginda.cs50.io:8080/list")!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let postString = "name=\(nameTextField.text!)&score=\(seconds)"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            self.viewHighScores()
+        }
+        task.resume()
         
     }
     
-//    func viewScores() {
-//        FoodHelper.shared.getFood() { (highscores) in
-//            if let highscores = highscores {
-//                self.highscores = highscores
-//            }
-//        }
-//    }
+    // shows highscores
+    func viewHighScores() {
+        FoodAPIHelper.shared.getScores() { (seconds) in
+            if let score = seconds {
+                self.seconds = score
+                }
+            }
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CompareSegue" {
+            let compareTableViewController = segue.destination as! CompareTableViewController
+            compareTableViewController.seconds = seconds
+        }
+    }
 
-
+    
 }
 

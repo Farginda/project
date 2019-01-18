@@ -12,13 +12,6 @@ import UIKit
 class FoodAPIHelper {
     static let shared = FoodAPIHelper()
     
-//    let kAppId = "01f36468"
-//    let kAppKey = "ca614ada16fcf14952f6b85ea19cc298"
-//
-////    let baseurl = URL(string: "https://trackapi.nutritionix.com/v2/natural/nutrients")!
-//
-//    let url = NSURL(string: "https://trackapi.nutritionix.com/v2/search/instant&appId=01f36468&appKey=ca614ada16fcf14952f6b85ea19cc298")!
-    
     // GET request FOODAPI
     func getFood(completion: @escaping ([Food]?) -> Void) {
         let string = "https://api.nutritionix.com/v1_1/search"
@@ -29,14 +22,13 @@ class FoodAPIHelper {
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let session = URLSession.shared
-        print("hallo")
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
             do {
                 if let data = data {
-                    let food = try JSONDecoder().decode([Food].self, from: data)
+                    let food = try? JSONDecoder().decode([Food].self, from: data)
                     completion(food)
                     print(data)
-                    print("!!!!!")
+                    print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))
                 } else {
                     completion(nil)
                 }

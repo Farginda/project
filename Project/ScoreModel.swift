@@ -10,7 +10,7 @@ import Foundation
 
 struct Score: Codable {
     var name: String
-    var score: String
+    var score: Double
     
     enum CodingKeys: String, CodingKey {
         case name
