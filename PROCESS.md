@@ -33,3 +33,7 @@ Vandaag heb ik de timer zo goed mogelijk lopend gekregen. Er zit echter alleen n
 ## Day 9: 17-01-2019
 
 Vandaag heb ik verdergewerkt aan de API en de viewcontrollers. Ik heb de layout van de tableviewcontroller zo goed mogelijk gemaakt. Het probleem waar ik nu nog tegenaan loop is dat de data van de API niet wordt weergegeven in de tableview. Ik heb de API request ook wat veranderd en een andere struct gemaakt, maar nog zonder succes. Daarnaast heb ik de navigatie binnen de app een beetje veranderd voor een betere gebruikservaring. 
+
+## Day 10: 18-01-2019
+
+Vandaag heb ik verder gewerkt aan de API functie. Hierbij heb ik mijn hele _FoodModel_ veranderd, omdat mijn eerste ingeving in de API niet juist was. Ik heb het gevoel dat de API functie bijna werkt, alleen nog kleine bugs hier en daar! Daarnaast heb ik de navigatie beter werkend gemaakt. Tot slot heb ik gewerkt aan de _compareTableView_, waarbij gebruikers hun behaalde resultaten kunnen vergelijken.
