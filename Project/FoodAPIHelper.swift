@@ -21,7 +21,7 @@ class FoodAPIHelper {
     
     // GET request FOODAPI
     func getFood(completion: @escaping ([Food]?) -> Void) {
-        let string = "https://trackapi.nutritionix.com/v2/search/instant"
+        let string = "https://api.nutritionix.com/v1_1/search"
         let url = NSURL(string: string)
         let request = NSMutableURLRequest(url: url! as URL)
         request.setValue("01f36468", forHTTPHeaderField: "x-app-id")
