@@ -10,7 +10,7 @@ import UIKit
 
 class FinishedViewController: UIViewController {
 
-    var seconds: Double = 0.00
+    var seconds: Double!
     var score = [Score]()
     
     @IBOutlet weak var congratsLabel: UILabel!
@@ -18,21 +18,22 @@ class FinishedViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBAction func SCButtonPressed(_ sender: UIButton) {
-        let url = URL(string: "https://ide50-farginda.cs50.io:8080/list")!
+        let url = URL(string: "https://ide50-farginda.legacy.cs50.io:8080/list")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        let postString = "name=\(nameTextField.text!)&score=\(seconds)"
+        let hours = seconds / 3600
+        let postString = "name=\(nameTextField.text!)&score=\(hours)"
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            self.viewHighScores()
+            self.viewScores()
         }
         task.resume()
         
     }
-    
+
     // shows highscores
-    func viewHighScores() {
+    func viewScores() {
         FoodAPIHelper.shared.getScores() { (score) in
             if let score = score {
                 self.score = score
@@ -42,7 +43,8 @@ class FinishedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        congratsLabel.text = "Congratulations! You've finished your intermittent fasting with a total of \(seconds) hours!"
+        let hours = seconds / 3600
+        congratsLabel.text = "Congratulations! You've finished your intermittent fasting with a total of \(hours) hours!"
 
     }
     

@@ -15,6 +15,9 @@ class CompareTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewWillAppear(true)
+        viewScores()
+        tableView.reloadData()
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -30,8 +33,8 @@ class CompareTableViewController: UITableViewController {
         return cell
     }
     
-    // shows highscores
-    func viewHighScores() {
+    // shows scores
+    func viewScores() {
         FoodAPIHelper.shared.getScores() { (score) in
             if let score = score {
                 self.score = score
@@ -48,7 +51,8 @@ class CompareTableViewController: UITableViewController {
     func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
         let user = score[indexPath.row]
         cell.textLabel?.text = user.name
-        cell.detailTextLabel?.text = user.score
+//        let hour = Int(user.score)
+        cell.detailTextLabel?.text = "\(user.score) uur"
     }
     
     // Override to support conditional editing of the table view.
