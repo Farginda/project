@@ -11,10 +11,12 @@ import UIKit
 
 class FoodAPIHelper {
     static let shared = FoodAPIHelper()
+    var score = [Score]()
     
     // GET request FOODAPI
     func getFood(completion: @escaping ([Food]?) -> Void) {
-        let string = "https://api.nutritionix.com/v1_1/search"
+//        let string = "https://api.nutritionix.com/v1_1/search" //VERSIE 1
+        let string = "https://trackapi.nutritionix.com/v2/search/instant" //VERSIE 2
         let url = NSURL(string: string)
         let request = NSMutableURLRequest(url: url! as URL)
         request.setValue("01f36468", forHTTPHeaderField: "x-app-id")

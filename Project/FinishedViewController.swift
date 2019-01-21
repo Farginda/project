@@ -10,7 +10,8 @@ import UIKit
 
 class FinishedViewController: UIViewController {
 
-    var seconds: Double!
+    var seconds: Double = 0.00
+    var score = [Score]()
     
     @IBOutlet weak var congratsLabel: UILabel!
     @IBOutlet weak var shareCompareButton: UIButton!
@@ -32,15 +33,16 @@ class FinishedViewController: UIViewController {
     
     // shows highscores
     func viewHighScores() {
-        FoodAPIHelper.shared.getScores() { (seconds) in
-            if let score = seconds {
-                self.seconds = score
+        FoodAPIHelper.shared.getScores() { (score) in
+            if let score = score {
+                self.score = score
                 }
             }
         }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        congratsLabel.text = "Congratulations! You've finished your intermittent fasting with a total of \(seconds) hours!"
 
     }
     
