@@ -14,9 +14,9 @@ class FoodAPIHelper {
     var score = [Score]()
     
     // GET request FOODAPI
-    func getFood(completion: @escaping ([Food]?) -> Void) {
+    func getFood(completion: @escaping ([Common]?) -> Void) {
 //        let string = "https://api.nutritionix.com/v1_1/search" //VERSIE 1
-        let string = "https://trackapi.nutritionix.com/v2/search/instant" //VERSIE 2
+        let string = "https://trackapi.nutritionix.com/v2/search/instant?query=\(FoodAPIViewController.searchBar)" //VERSIE 2
         let url = NSURL(string: string)
         let request = NSMutableURLRequest(url: url! as URL)
         request.setValue("01f36468", forHTTPHeaderField: "x-app-id")
@@ -27,7 +27,7 @@ class FoodAPIHelper {
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
             do {
                 if let data = data {
-                    let food = try? JSONDecoder().decode([Food].self, from: data)
+                    let food = try? JSONDecoder().decode([Common].self, from: data)
                     completion(food)
                     print(data)
                     print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))

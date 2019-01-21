@@ -13,22 +13,28 @@ class FoodAPIViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    var food = [Food]()
+    var foodv2 = [FoodV2]()
+    var food = [Common]()
     var searchFood = [String]()
     var searching = false
     var sort: String!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
         FoodAPIHelper.shared.getFood()
-        { (Food) in
-            if let Food = Food {
-                self.updateUI(with: Food)
+        { (Common) in
+            if let Common = Common {
+                self.updateUI(with: Common)
             }
         }
+        searchBar.delegate = self
     }
     
-    func updateUI(with food: [Food]) {
+    func updateUI(with food: [Common]) {
         DispatchQueue.main.async {
             self.food = food
             self.tableView.reloadData()
@@ -40,19 +46,27 @@ class FoodAPIViewController: UIViewController {
 }
 
 // tableview for foodlist
-extension FoodAPIViewController: UITableViewDataSource, UITabBarDelegate {
+extension FoodAPIViewController: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        
+        
+        print("cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         if searching {
-            cell?.textLabel?.text = searchFood[indexPath.row]
+            print("searching")
+            cell.textLabel?.text = searchFood[indexPath.row]
         } else {
-            cell?.textLabel?.text = list[indexPath.row]
+            print("else")
+            cell.textLabel?.text = list[indexPath.row]
+//            let foodSearch = foodv2[indexPath.row]
+//            let list = foodSearch.common[indexPath.row]
+//            cell?.textLabel?.text = list.foodName.prefix(upTo: String.Index)[indexPath.row]
         }
-        return cell!
+        return cell
     }
 }
 

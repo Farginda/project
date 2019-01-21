@@ -44,6 +44,7 @@ class TimerViewController: UIViewController {
         if seconds < 1.0 {
             timer.invalidate()
             timer.fire() // check?
+            performSegue(withIdentifier: "FinishedSegue", sender: self)
             // SEND NOTIFICATION OR ALERT
         } else {
             seconds = seconds - 1.0
