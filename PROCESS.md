@@ -37,3 +37,7 @@ Vandaag heb ik verdergewerkt aan de API en de viewcontrollers. Ik heb de layout 
 ## Day 10: 18-01-2019
 
 Vandaag heb ik verder gewerkt aan de API functie. Hierbij heb ik mijn hele _FoodModel_ veranderd, omdat mijn eerste ingeving in de API niet juist was. Ik heb het gevoel dat de API functie bijna werkt, alleen nog kleine bugs hier en daar! Daarnaast heb ik de navigatie beter werkend gemaakt. Tot slot heb ik gewerkt aan de _compareTableView_, waarbij gebruikers hun behaalde resultaten kunnen vergelijken.
+
+## Day 11: 21-01-2019
+
+Vandaag heb ik gewerkt aan een aantal bugs van de API. De API wordt nu wel geprint in de terminal, maar nog niet in de app. Dit komt door een crash bij het tikken van de searchbar. Hier heb ik met iemand van de staff heel lang aan gezeten, maar nog steeds zonder resultaat. Verder werkt de database voor de scores nu goed en is dit zichtbaar in de app. Er is ruimte voor veel verbetering, dus daar ga ik komende dagen aan werken.
