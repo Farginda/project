@@ -14,7 +14,7 @@ class IFinfoTableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
-    let list = ["https://www.healthline.com/nutrition/10-health-benefits-of-intermittent-fasting", "http://time.com/5354498/is-intermittent-fasting-healthy/", "https://www.health.harvard.edu/blog/intermittent-fasting-surprising-update-2018062914156", "https://www.mindbodygreen.com/articles/why-intermittent-fasting-is-the-best-thing-to-ever-happen-to-your-metabolism", "https://www.dietdoctor.com/intermittent-fasting"]
+    var list = ["https://www.healthline.com/nutrition/10-health-benefits-of-intermittent-fasting", "http://time.com/5354498/is-intermittent-fasting-healthy/", "https://www.health.harvard.edu/blog/intermittent-fasting-surprising-update-2018062914156", "https://www.mindbodygreen.com/articles/why-intermittent-fasting-is-the-best-thing-to-ever-happen-to-your-metabolism", "https://www.dietdoctor.com/intermittent-fasting"]
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -24,13 +24,13 @@ class IFinfoTableViewController: UITableViewController {
         return list.count
     }
 
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
-//        cell.textLabel?.text = list(indexPath.row)
-//        return cell
-//    }
- 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
+        cell.contentView.isUserInteractionEnabled = false
 
+        cell.textLabel?.text = list[indexPath.row]
+        return cell
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

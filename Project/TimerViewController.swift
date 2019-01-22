@@ -67,7 +67,7 @@ class TimerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FinishedSegue" {
             let finishedViewController = segue.destination as! FinishedViewController
-            finishedViewController.seconds = seconds
+            finishedViewController.seconds = seconds.rounded()
         }
     }
 }

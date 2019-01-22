@@ -13,11 +13,15 @@ class CompareTableViewController: UITableViewController {
     var seconds: Double!
     var score = [Score]()
     
+    
     override func viewDidLoad() {
+        // reload data after fetching scores
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         super.viewDidLoad()
         self.viewWillAppear(true)
         viewScores()
-        tableView.reloadData()
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

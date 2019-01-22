@@ -14,7 +14,6 @@ class HoursViewController: UIViewController {
         super.viewDidLoad()
         goButton.layer.cornerRadius = 30
         goButton.clipsToBounds = true
-
     }
     
     // outlets
@@ -33,9 +32,9 @@ class HoursViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "hoursSegue" {
             let timerViewController = segue.destination as! TimerViewController
-            print(hoursPicker.countDownDuration)
+            print(hoursPicker.countDownDuration.round())
 //            let sec = Int(timerViewController.seconds)
-            timerViewController.seconds = hoursPicker.countDownDuration
+            timerViewController.seconds = hoursPicker.countDownDuration.rounded()
         }
     }
 

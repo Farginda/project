@@ -23,13 +23,13 @@ class FinishedViewController: UIViewController {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         let hours = seconds / 3600
-        let postString = "name=\(nameTextField.text!)&score=\(hours)"
+        let postString = "name=\(nameTextField.text!)&score=\(hours.rounded())"
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             self.viewScores()
         }
         task.resume()
-        
+       
     }
 
     // shows highscores
@@ -43,17 +43,17 @@ class FinishedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        shareCompareButton.layer.cornerRadius = 20
+        shareCompareButton.layer.cornerRadius = 10
         shareCompareButton.clipsToBounds = true
         let hours = seconds / 3600
-        congratsLabel.text = "Congratulations! You've finished your intermittent fasting with a total of \(hours) hours!"
+        congratsLabel.text = "Congratulations! You've finished your intermittent fasting with a total of \(hours.rounded()) hours!"
 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CompareSegue" {
             let compareTableViewController = segue.destination as! CompareTableViewController
-            compareTableViewController.seconds = seconds
+            compareTableViewController.seconds = seconds.rounded()
         }
     }
 
