@@ -43,6 +43,8 @@ class FinishedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        shareCompareButton.layer.cornerRadius = 20
+        shareCompareButton.clipsToBounds = true
         let hours = seconds / 3600
         congratsLabel.text = "Congratulations! You've finished your intermittent fasting with a total of \(hours) hours!"
 

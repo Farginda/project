@@ -14,6 +14,8 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        timerLabel.layer.cornerRadius = 50
+        timerLabel.clipsToBounds = true
         runTimer()
     }
     
