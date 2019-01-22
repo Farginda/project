@@ -41,3 +41,9 @@ Vandaag heb ik verder gewerkt aan de API functie. Hierbij heb ik mijn hele _Food
 ## Day 11: 21-01-2019
 
 Vandaag heb ik gewerkt aan een aantal bugs van de API. De API wordt nu wel geprint in de terminal, maar nog niet in de app. Dit komt door een crash bij het tikken van de searchbar. Hier heb ik met iemand van de staff heel lang aan gezeten, maar nog steeds zonder resultaat. Verder werkt de database voor de scores nu goed en is dit zichtbaar in de app. Er is ruimte voor veel verbetering, dus daar ga ik komende dagen aan werken.
+
+## Day 12: 22-01-2019
+
+Vandaag heb ik de hele dag aan de design van de app gewerkt, waarbij ik alle views een bepaalde thema en kleur heb gegeven. Daarnaast heb ik geprobeerd om zoveel mogelijk bugs te fixen, zodat ik morgen bij de assistentie kan werken aan een goed werkende API. 
+
+<img src="https://github.com/Farginda/project/blob/master/doc/Schermafbeelding%202019-01-22%20om%2022.28.27.png" width="130%" height="130%"/>
