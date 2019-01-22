@@ -153,16 +153,6 @@
                             <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="export" translatesAutoresizingMaskIntoConstraints="NO" id="omQ-5H-kWN">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wap-fH-xFw">
-                                <rect key="frame" x="87" y="74" width="202" height="182"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="182" id="Gw0-gB-qtJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gS1-uw-tSt">
                                 <rect key="frame" x="333" y="20" width="42" height="42"/>
                                 <state key="normal" image="thinkkk"/>
@@ -201,6 +191,16 @@
                                     <segue destination="j0A-C7-KcD" kind="show" identifier="FoodApiSegue" id="2xL-Lm-wjB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wap-fH-xFw">
+                                <rect key="frame" x="97" y="77" width="182" height="182"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="182" id="Gw0-gB-qtJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -212,11 +212,11 @@
                             <constraint firstItem="DJr-PJ-Tg7" firstAttribute="trailing" secondItem="JDY-n7-de0" secondAttribute="trailing" constant="135" id="IgK-FL-2zi"/>
                             <constraint firstItem="omQ-5H-kWN" firstAttribute="leading" secondItem="DJr-PJ-Tg7" secondAttribute="leading" id="PEh-RM-1JJ"/>
                             <constraint firstItem="jXw-A2-25F" firstAttribute="top" secondItem="KPD-UN-91H" secondAttribute="bottom" constant="63" id="QHB-GJ-NSh"/>
-                            <constraint firstItem="KPD-UN-91H" firstAttribute="top" secondItem="Wap-fH-xFw" secondAttribute="bottom" constant="120" id="SKp-fb-fbe"/>
-                            <constraint firstItem="JDY-n7-de0" firstAttribute="top" secondItem="Wap-fH-xFw" secondAttribute="bottom" constant="106" id="T1t-E3-XTN"/>
+                            <constraint firstItem="KPD-UN-91H" firstAttribute="top" secondItem="Wap-fH-xFw" secondAttribute="bottom" constant="117" id="SKp-fb-fbe"/>
+                            <constraint firstItem="JDY-n7-de0" firstAttribute="top" secondItem="Wap-fH-xFw" secondAttribute="bottom" constant="103" id="T1t-E3-XTN"/>
                             <constraint firstItem="NRS-nB-GUx" firstAttribute="centerX" secondItem="jXw-A2-25F" secondAttribute="centerX" id="TZh-hi-6H5"/>
                             <constraint firstItem="DJr-PJ-Tg7" firstAttribute="bottom" secondItem="NRS-nB-GUx" secondAttribute="bottom" constant="30" id="UBy-78-YPI"/>
-                            <constraint firstItem="Wap-fH-xFw" firstAttribute="leading" secondItem="DJr-PJ-Tg7" secondAttribute="leading" constant="87" id="Unp-9c-Yyv"/>
+                            <constraint firstItem="Wap-fH-xFw" firstAttribute="leading" secondItem="DJr-PJ-Tg7" secondAttribute="leading" constant="97" id="Unp-9c-Yyv"/>
                             <constraint firstItem="Wap-fH-xFw" firstAttribute="centerX" secondItem="JDY-n7-de0" secondAttribute="centerX" id="Vys-eD-Tm8"/>
                             <constraint firstItem="omQ-5H-kWN" firstAttribute="trailing" secondItem="DJr-PJ-Tg7" secondAttribute="trailing" id="Z28-gz-vLS"/>
                             <constraint firstItem="gS1-uw-tSt" firstAttribute="leading" secondItem="DJr-PJ-Tg7" secondAttribute="leading" constant="333" id="apH-SI-jy4"/>
@@ -228,7 +228,7 @@
                             <constraint firstItem="omQ-5H-kWN" firstAttribute="bottom" secondItem="DJr-PJ-Tg7" secondAttribute="bottom" id="pMM-AL-alj"/>
                             <constraint firstItem="jXw-A2-25F" firstAttribute="leading" secondItem="omQ-5H-kWN" secondAttribute="leading" id="tKe-LI-y2b"/>
                             <constraint firstItem="omQ-5H-kWN" firstAttribute="top" secondItem="DJr-PJ-Tg7" secondAttribute="top" id="utQ-vt-Ysk"/>
-                            <constraint firstItem="Wap-fH-xFw" firstAttribute="top" secondItem="DJr-PJ-Tg7" secondAttribute="top" constant="54" id="vVO-Mb-i5R"/>
+                            <constraint firstItem="Wap-fH-xFw" firstAttribute="top" secondItem="DJr-PJ-Tg7" secondAttribute="top" constant="57" id="vVO-Mb-i5R"/>
                             <constraint firstItem="NRS-nB-GUx" firstAttribute="top" secondItem="jXw-A2-25F" secondAttribute="top" id="wsa-ry-RHi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DJr-PJ-Tg7"/>
@@ -470,18 +470,6 @@
                             <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="export" translatesAutoresizingMaskIntoConstraints="NO" id="dcF-h7-2IG">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxv-2f-3Ut">
-                                <rect key="frame" x="56" y="505" width="263" height="53"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="35"/>
-                                <state key="normal" title="Share &amp; Compare!">
-                                    <color key="titleColor" red="1" green="0.45784339950000003" blue="0.37478002119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="SCButtonPressed:" destination="zn7-6F-zO2" eventType="touchUpInside" id="Awm-dE-C6q"/>
-                                    <segue destination="l7a-o3-eod" kind="show" identifier="CompareSegue" id="SUC-qo-ntP"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats text" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbE-Tw-Ptp">
                                 <rect key="frame" x="16" y="241" width="343" height="92"/>
                                 <constraints>
@@ -504,7 +492,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gnm-IF-Hh1">
-                                <rect key="frame" x="16" y="429" width="343" height="30"/>
+                                <rect key="frame" x="16" y="435" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -515,6 +503,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wxv-2f-3Ut">
+                                <rect key="frame" x="37" y="514" width="298" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="30"/>
+                                <state key="normal" title="Share &amp; Compare!">
+                                    <color key="titleColor" red="1" green="0.45784339950000003" blue="0.37478002119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SCButtonPressed:" destination="zn7-6F-zO2" eventType="touchUpInside" id="Awm-dE-C6q"/>
+                                    <segue destination="l7a-o3-eod" kind="show" identifier="CompareSegue" id="SUC-qo-ntP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -557,8 +557,7 @@
         <image name="thinkkk" width="20.803611755371094" height="20.803611755371094"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g7P-zH-8Gn"/>
-        <segue reference="33l-nV-sPX"/>
+        <segue reference="2xL-Lm-wjB"/>
         <segue reference="DkC-Wn-JC3"/>
         <segue reference="Ahe-Vk-V2K"/>
     </inferredMetricsTieBreakers>

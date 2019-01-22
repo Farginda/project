@@ -14,7 +14,7 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timerLabel.layer.cornerRadius = 50
+        timerLabel.layer.cornerRadius = 90
         timerLabel.clipsToBounds = true
         runTimer()
     }
@@ -27,9 +27,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var stopTimerButton: UIButton!
     @IBOutlet weak var FoodInspoButton: UIButton!
-    @IBOutlet weak var infoButton: UIButton!
-    @IBOutlet weak var settingsButton: UIButton!
-    
+    @IBOutlet weak var infoButton: UIButton!    
     // stop timer
     @IBAction func stopButtonPressed(_ sender: UIButton) {
         timer.invalidate()
