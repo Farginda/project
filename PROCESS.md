@@ -47,3 +47,7 @@ Vandaag heb ik gewerkt aan een aantal bugs van de API. De API wordt nu wel gepri
 Vandaag heb ik de hele dag aan de design van de app gewerkt, waarbij ik alle views een bepaalde thema en kleur heb gegeven. Daarnaast heb ik geprobeerd om zoveel mogelijk bugs te fixen, zodat ik morgen bij de assistentie kan werken aan een goed werkende API. 
 
 <img src="https://github.com/Farginda/project/blob/master/doc/Schermafbeelding%202019-01-22%20om%2022.28.27.png" width="130%" height="130%"/>
+
+## Day 13: 23-01-2019
+
+Vandaag heb ik de hele dag gewerkt aan de searchbar. Deze werkt nog steeds niet goed, maar wel beter dan eerst. Verder heb ik een aantal nieuwe classes aangemaakt die hierbij hebben geholpen. Ik heb verder gewerkt aan de API. De uitkomsten van mijn API verschijnen wel in mijn terminal maar nog niet correct in de app.
