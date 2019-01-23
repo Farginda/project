@@ -10,6 +10,8 @@ import UIKit
 
 class FoodDetailViewController: UIViewController {
 
+    var item: Common!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

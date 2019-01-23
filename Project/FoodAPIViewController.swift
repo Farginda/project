@@ -6,6 +6,8 @@
 //  Copyright © 2019 Farginda. All rights reserved.
 //
 
+// VERWIJDEREN!!!!!
+
 import UIKit
 
 class FoodAPIViewController: UIViewController {
@@ -13,17 +15,17 @@ class FoodAPIViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    var filteredArray = [String]()
+    
     var foodv2 = [FoodV2]()
     var food = [Common]()
     var searchFood = [String]()
-    var searching = false
-    var sort: String!
-    
+    var searching = false    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "FoodCell")
         
         FoodAPIHelper.shared.getFood()
         { (Common) in
@@ -52,10 +54,8 @@ extension FoodAPIViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         print("cell")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
         if searching {
             print("searching")
             cell.textLabel?.text = searchFood[indexPath.row]

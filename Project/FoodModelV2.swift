@@ -9,7 +9,7 @@
 import Foundation
 
 struct FoodV2: Codable {
-    let common: [Common]
+    var common: [Common]
 //    let branded: [Branded]
 }
 
@@ -48,12 +48,12 @@ struct FoodV2: Codable {
 //}
 
 struct Common: Codable {
-    let foodName, servingUnit: String
-    let servingQty: Int
-    let commonType: Int?
-    let tagID: String
-    let photo: CommonPhoto
-    let locale: Locale
+    var foodName, servingUnit: String
+    var servingQty: Int
+    var commonType: Int?
+    var tagID: String
+    var photo: CommonPhoto
+    var locale: Locale
     
     enum CodingKeys: String, CodingKey {
         case foodName = "food_name"
@@ -66,9 +66,9 @@ struct Common: Codable {
 }
 
 struct CommonPhoto: Codable {
-    let thumb: String
-    let highres: JSONNull?
-    let isUserUploaded: Bool?
+    var thumb: String
+    var highres: JSONNull?
+    var isUserUploaded: Bool?
     
     enum CodingKeys: String, CodingKey {
         case thumb, highres
