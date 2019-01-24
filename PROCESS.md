@@ -54,4 +54,4 @@ Vandaag heb ik de hele dag gewerkt aan de searchbar. Deze werkt nog steeds niet 
 
 ## Day 14: 24-01-2019
 
-Hackathon :)
+Hackathon 😁
