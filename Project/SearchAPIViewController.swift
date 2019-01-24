@@ -17,7 +17,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     var arrFilter = [String]()
     var food = [Common]()
     var item: Common!
-
+    var foodv2 = [FoodV2]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +32,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tblSearch.delegate = self
         self.searchBar.delegate = self
     }
+    
     
     func updateUI(with food: [Common]) {
         DispatchQueue.main.async {

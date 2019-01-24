@@ -18,7 +18,7 @@ class FoodAPIHelper {
 //        let string = "https://api.nutritionix.com/v1_1/search" //VERSIE 1
 //        let string = "https://trackapi.nutritionix.com/v2/search/instant?query=chocolate" //TEST SEARCH QUERY
         
-        let string = "https://trackapi.nutritionix.com/v2/search/instant?query=\(FoodAPIViewController.searchBar)" //VERSIE 2
+        let string = "https://trackapi.nutritionix.com/v2/search/instant?query=\(SearchAPIViewController.searchBar)" //VERSIE 2
         let url = NSURL(string: string)
         let request = NSMutableURLRequest(url: url! as URL)
         request.setValue("01f36468", forHTTPHeaderField: "x-app-id")
