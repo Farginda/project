@@ -51,3 +51,7 @@ Vandaag heb ik de hele dag aan de design van de app gewerkt, waarbij ik alle vie
 ## Day 13: 23-01-2019
 
 Vandaag heb ik de hele dag gewerkt aan de searchbar. Deze werkt nog steeds niet goed, maar wel beter dan eerst. Verder heb ik een aantal nieuwe classes aangemaakt die hierbij hebben geholpen. Ik heb verder gewerkt aan de API. De uitkomsten van mijn API verschijnen wel in mijn terminal maar nog niet correct in de app.
+
+## Day 14: 24-01-2019
+
+Hackathon :)
