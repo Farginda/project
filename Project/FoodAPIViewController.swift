@@ -27,12 +27,6 @@ class FoodAPIViewController: UIViewController {
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "FoodCell")
         
-        FoodAPIHelper.shared.getFood()
-        { (Common) in
-            if let Common = Common {
-                self.updateUI(with: Common)
-            }
-        }
         searchBar.delegate = self
     }
     

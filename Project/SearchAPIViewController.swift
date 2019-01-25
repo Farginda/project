@@ -9,25 +9,22 @@
 import UIKit
 
 class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tblSearch: UITableView!
     
     var isSearch = false
     var arrFilter = [String]()
-    var food = [Common]()
+    var food: [Common] = []
+
     var item: Common!
     var foodv2 = [FoodV2]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI(with: food)
-        FoodAPIHelper.shared.getFood()
-            { (Common) in
-                if let Common = Common {
-                    self.updateUI(with: Common)
-                }
-        }
+
         self.tblSearch.dataSource = self
         self.tblSearch.delegate = self
         self.searchBar.delegate = self
@@ -40,7 +37,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
             self.tblSearch.reloadData()
         }
     }
-    var arrCountry = ["Ei", "Banaan", "Tomaat", "Chocolade", "Brood"]
+//    var arrCountry = ["Ei", "Banaan", "Tomaat", "Chocolade", "Brood"]
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -55,37 +52,15 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
+        let getFood = food[indexPath.row]
         if(isSearch){
-            cell.textLabel?.text = arrFilter[indexPath.row]
+            cell.textLabel?.text = getFood.foodName
         } else {
-            let item = food[indexPath.row]
-            cell.textLabel?.text = item.foodName
-//            cell.textLabel?.text = item?[indexPath.row]
+            cell.textLabel?.text = getFood.foodName
         }
         return cell
     }
-    
-    
-    // configure view cell menu item
-//    func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
-//        let item = food[indexPath.row]
-//        cell.textLabel?.text = item.foodName
-//        cell.setNeedsLayout()
-//    }
 
-//    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell" as UITableViewCell;
-//        configureCell(cell: cell, forRowAtIndexPath: indexPath as NSIndexPath)
-//        return cell
-//    }
-//
-//    func configureCell(cell: UITableViewCell, forRowAtIndexPath: NSIndexPath) {
-//        if(isSearch){
-//            cell.textLabel?.text = arrFilter[IndexPath.row]
-//        } else {
-//            cell.textLabel?.text = arrCountry[IndexPath.row];
-//        }
-//    }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         isSearch = true;
@@ -103,7 +78,15 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        isSearch = false;
+        isSearch = false
+//        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+//        FoodAPIHelper.shared.getFood(searchTerm: searchText) { results, errorMessage in
+//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//            if let results = results {
+//                self.food = results
+//            }
+//            if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
+//        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -112,11 +95,23 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
             isSearch = false;
             self.tblSearch.reloadData()
         } else {
-            arrFilter = food.filter({ (text) -> Bool in
-                let tmp: NSString = text as NSString
-                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-                return range.location != NSNotFound
-            })
+            guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+            print("Hallo")
+            FoodAPIHelper.shared.getFood(searchTerm: searchText) { results, errorMessage in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                if let results = results {
+                    self.food = results
+                }
+                if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
+            }
+            
+//            let getFood = food
+//            let foodText = getFood.foodName
+//            arrFilter = food.filter({ (text) -> Bool in
+//                let tmp: NSString = text as NSString
+//                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+//                return range.location != NSNotFound
+//            })
             if(arrFilter.count == 0){
                 isSearch = false;
             } else {

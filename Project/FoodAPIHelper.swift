@@ -12,36 +12,96 @@ import UIKit
 class FoodAPIHelper {
     static let shared = FoodAPIHelper()
     var score = [Score]()
+    var foodList: [Common] = []
+    var errorMessage = ""
     
-    // GET request FOODAPI
-    func getFood(completion: @escaping ([Common]?) -> Void) {
-//        let string = "https://api.nutritionix.com/v1_1/search" //VERSIE 1
-//        let string = "https://trackapi.nutritionix.com/v2/search/instant?query=chocolate" //TEST SEARCH QUERY
-        
-        let string = "https://trackapi.nutritionix.com/v2/search/instant?query=\(SearchAPIViewController.searchBar)" //VERSIE 2
-        let url = NSURL(string: string)
-        let request = NSMutableURLRequest(url: url! as URL)
-        request.setValue("01f36468", forHTTPHeaderField: "x-app-id")
-        request.setValue("ca614ada16fcf14952f6b85ea19cc298", forHTTPHeaderField: "x-app-key")
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let session = URLSession.shared
-        let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
-            do {
-                if let data = data {
-                    let food = try? JSONDecoder().decode([Common].self, from: data)
-                    completion(food)
-                    print(data)
-                    print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))
-                } else {
-                    completion(nil)
+    typealias JSONDictionary = [String]
+    typealias QueryResult = ([Common]?, String) -> ()
+    
+    // 1
+    let defaultSession = URLSession(configuration: .default)
+    // 2
+    var dataTask: URLSessionDataTask?
+    
+    func getFood(searchTerm: String, completion: @escaping QueryResult) {
+        //        let string = "https://api.nutritionix.com/v1_1/search" //VERSIE 1
+        //        let string = "https://trackapi.nutritionix.com/v2/search/instant?query=chocolate" //TEST SEARCH QUERY
+        dataTask?.cancel()
+        if var urlComponents = URLComponents(string: "https://trackapi.nutritionix.com/v2/search/instant?") {
+            urlComponents.query = searchTerm
+            guard let url = urlComponents.url else { return }
+            let request = NSMutableURLRequest(url: url as URL)
+            request.setValue("01f36468", forHTTPHeaderField: "x-app-id")
+            request.setValue("ca614ada16fcf14952f6b85ea19cc298", forHTTPHeaderField: "x-app-key")
+            request.httpMethod = "GET"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            let session = URLSession.shared
+            dataTask = session.dataTask(with: url) { data, response, error in
+                defer { self.dataTask = nil }
+                
+            if let error = error {
+                self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+            } else if let data = data,
+                let response = response as? HTTPURLResponse,
+                response.statusCode == 200 {
+                let food = try? JSONDecoder().decode([Common].self, from: data)
+                completion(food, self.errorMessage)
+
+//                self.updateSearchResults(data)
+                print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))
+
+                DispatchQueue.main.async {
+                    completion(self.foodList, self.errorMessage)
                 }
-            } catch {
-                print(error)
             }
         }
-        task.resume()
+    
+        dataTask?.resume()
     }
+        }
+    
+//    fileprivate func updateSearchResults(_ data: Data) {
+//        var response: JSONDictionary?
+//        foodList.removeAll()
+//        do {
+//            response = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
+//        } catch let parseError as NSError {
+//            errorMessage += "JSONSerialization error: \(parseError.localizedDescription)\n"
+//            return
+//        }
+//    }
+    
+
+    
+//    // GET request FOODAPI
+//    func getFood(completion: @escaping ([Common]?) -> Void) {
+////        let string = "https://api.nutritionix.com/v1_1/search" //VERSIE 1
+////        let string = "https://trackapi.nutritionix.com/v2/search/instant?query=chocolate" //TEST SEARCH QUERY
+//
+//        let string = "https://trackapi.nutritionix.com/v2/search/instant?query=\(SearchAPIViewController.searchBar)" //VERSIE 2
+//        let url = NSURL(string: string)
+//        let request = NSMutableURLRequest(url: url! as URL)
+//        request.setValue("01f36468", forHTTPHeaderField: "x-app-id")
+//        request.setValue("ca614ada16fcf14952f6b85ea19cc298", forHTTPHeaderField: "x-app-key")
+//        request.httpMethod = "GET"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        let session = URLSession.shared
+//        let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
+//            do {
+//                if let data = data {
+//                    let food = try? JSONDecoder().decode([Common].self, from: data)
+//                    completion(food)
+//                    print(data)
+////                    print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))
+//                } else {
+//                    completion(nil)
+//                }
+//            } catch {
+//                print(error)
+//            }
+//        }
+//        task.resume()
+//    }
 
     // get scores
     func getScores(completion: @escaping ([Score]?) -> Void) {
