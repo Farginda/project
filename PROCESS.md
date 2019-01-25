@@ -55,3 +55,7 @@ Vandaag heb ik de hele dag gewerkt aan de searchbar. Deze werkt nog steeds niet 
 ## Day 14: 24-01-2019
 
 Hackathon 😁
+
+## Day 15: 25-01-2019
+
+Vandaag heb ik verder gewerkt aan alle bugs in mijn app. Een aantal heb ik kunnen oplossen en een aantal niet. De searchbar werkt nu bijna en crasht niet meer. Ik heb de manier van mijn GET request van de api veranderd, omdat de invoer van de gebruiker ook in de query moet komen. De API moet nu nog geladen worden in de tableview, waarbij de gebruiker al het voedsel in de api zou kunnen zoeken.
