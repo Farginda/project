@@ -321,11 +321,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="0gs-9q-LMk">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Ezd-QO-lCe">
-                                            <connections>
-                                                <segue destination="MNj-aa-xoo" kind="show" id="N1g-0Z-UuN"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Ezd-QO-lCe"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -575,6 +571,7 @@
         <image name="thinkkk" width="20.803611755371094" height="20.803611755371094"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="m9K-6O-HVs"/>
         <segue reference="33l-nV-sPX"/>
         <segue reference="VBg-lg-FPx"/>
         <segue reference="Ahe-Vk-V2K"/>

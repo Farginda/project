@@ -28,51 +28,62 @@ class FoodAPIHelper {
         //        let string = "https://trackapi.nutritionix.com/v2/search/instant?query=chocolate" //TEST SEARCH QUERY
         dataTask?.cancel()
         if var urlComponents = URLComponents(string: "https://trackapi.nutritionix.com/v2/search/instant?") {
-            urlComponents.query = searchTerm
+            urlComponents.query = "query=\(searchTerm)"
             guard let url = urlComponents.url else { return }
+            print(url)
             let request = NSMutableURLRequest(url: url as URL)
             request.setValue("01f36468", forHTTPHeaderField: "x-app-id")
             request.setValue("ca614ada16fcf14952f6b85ea19cc298", forHTTPHeaderField: "x-app-key")
             request.httpMethod = "GET"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             let session = URLSession.shared
-            dataTask = session.dataTask(with: url) { data, response, error in
-                defer { self.dataTask = nil }
-                
-            if let error = error {
-                self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-            } else if let data = data,
-                let response = response as? HTTPURLResponse,
-                response.statusCode == 200 {
-                let food = try? JSONDecoder().decode([Common].self, from: data)
-                completion(food, self.errorMessage)
-
-//                self.updateSearchResults(data)
-                print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))
-
-                DispatchQueue.main.async {
-                    completion(self.foodList, self.errorMessage)
-                }
+            let task = session.dataTask(with: url) { (data, response, error) -> Void in
+            do {
+                if let data = data,
+                    let response = response as? HTTPURLResponse,
+                    response.statusCode == 200 {
+                    let food = try? JSONDecoder().decode([Common].self, from: data)
+                    completion(food, self.errorMessage)
+                    print(data)
+                    print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))
+                    DispatchQueue.main.async {
+                        completion(self.foodList, self.errorMessage)
+                    }
+            }
+            } catch {
+                print(error)
             }
         }
-    
-        dataTask?.resume()
+        task.resume()
     }
-        }
-    
-//    fileprivate func updateSearchResults(_ data: Data) {
-//        var response: JSONDictionary?
-//        foodList.removeAll()
-//        do {
-//            response = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
-//        } catch let parseError as NSError {
-//            errorMessage += "JSONSerialization error: \(parseError.localizedDescription)\n"
-//            return
+        
+    }
+        ////////////////////////////////
+//            if let error = error {
+//                self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+//            }
+//
+//                if let data = data,
+//                let response = response as? HTTPURLResponse,
+//                response.statusCode == 200 {
+//                let food = try? JSONDecoder().decode([Common].self, from: data)
+//                completion(food, self.errorMessage)
+//                print(data)
+//                print("datadata")
+////                self.updateSearchResults(data)
+//                print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))
+//
+//                DispatchQueue.main.async {
+//                    completion(self.foodList, self.errorMessage)
+//                }
+//            }
 //        }
+//
+//        dataTask?.resume()
 //    }
-    
+//        }
+    ////////////////////////////////
 
-    
 //    // GET request FOODAPI
 //    func getFood(completion: @escaping ([Common]?) -> Void) {
 ////        let string = "https://api.nutritionix.com/v1_1/search" //VERSIE 1

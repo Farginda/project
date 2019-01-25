@@ -16,10 +16,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var isSearch = false
     var arrFilter = [String]()
-    var food: [Common] = []
-
-    var item: Common!
-    var foodv2 = [FoodV2]()
+    var food: [Common]! = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +30,8 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func updateUI(with food: [Common]) {
         DispatchQueue.main.async {
+            
+            print(food)
             self.food = food
             self.tblSearch.reloadData()
         }
@@ -79,14 +78,6 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         isSearch = false
-//        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
-//        FoodAPIHelper.shared.getFood(searchTerm: searchText) { results, errorMessage in
-//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//            if let results = results {
-//                self.food = results
-//            }
-//            if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
-//        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
