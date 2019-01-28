@@ -59,3 +59,7 @@ Hackathon 😁
 ## Day 15: 25-01-2019
 
 Vandaag heb ik verder gewerkt aan alle bugs in mijn app. Een aantal heb ik kunnen oplossen en een aantal niet. De searchbar werkt nu bijna en crasht niet meer. Ik heb de manier van mijn GET request van de api veranderd, omdat de invoer van de gebruiker ook in de query moet komen. De API moet nu nog geladen worden in de tableview, waarbij de gebruiker al het voedsel in de api zou kunnen zoeken.
+
+## Day 16: 28-01-2019
+
+Vandaag heb ik eindelijk de API werkend gekregen in mijn terminal. Ik stuit nu alleen nog op een error waardoor de lijst niet wordt getoond in mijn app. Verder heb ik middels de _unwindtosegue_ methode een manier gemaakt dat de timer altijd door blijft lopen, ook wanneer andere viewcontrollers worden geopend.
