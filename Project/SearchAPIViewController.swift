@@ -9,17 +9,17 @@
 import UIKit
 
 class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-        
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tblSearch: UITableView!
     
     var isSearch = false
-    var arrFilter = [String]()
-    var food: [Common]! = []
+    var filteredList = [String]()
+    var food: [Common] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tblSearch.register(FoodTableViewCell.classForCoder(), forCellReuseIdentifier: "FoodCell");
         FoodAPIHelper.shared.getFood(searchTerm: "")
         { (results, food)  in
             if let results = results {
@@ -34,7 +34,6 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         self.searchBar.delegate = self
         }
     }
-    
     
     func updateUI(with food: [Common]) {
         DispatchQueue.main.async {
@@ -51,7 +50,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(isSearch) {
-            return arrFilter.count
+            return filteredList.count
         }
         return food.count;
     }
@@ -94,24 +93,20 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         } else {
             guard let searchText = searchBar.text, !searchText.isEmpty else { return }
             print("Hallo")
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             FoodAPIHelper.shared.getFood(searchTerm: searchText) { results, errorMessage in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 if let results = results {
                     print("RESULTSLIST \(results)")
                     self.food = results
-                    self.tblSearch.reloadData()
-                    self.tblSearch.setContentOffset(CGPoint.zero, animated: false)
                 }
                 if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
             }
-//            let getFood = food
-//            arrFilter = food.filter({ (text) -> Bool in
-//                let tmp: NSString = text as NSString
-//                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-//                return range.location != NSNotFound
-//            })
-            if(arrFilter.count == 0){
+//                filteredList = food.filter({ (text) -> Bool in
+//                    let tmp: NSString = text as NSString
+//                    let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+//                    return range.location != NSNotFound
+//                })
+
+            if(filteredList.count == 0){
                 isSearch = false;
             } else {
                 isSearch = true;
@@ -128,4 +123,5 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
             foodDetailViewController.item = food[index]
         }
     }
+
 }

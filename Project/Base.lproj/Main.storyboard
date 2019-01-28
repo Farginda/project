@@ -303,7 +303,7 @@
                                 <color key="backgroundColor" red="1" green="0.731622938" blue="0.71768335589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FoodCell" id="SeM-mc-V9L">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FoodCell" id="SeM-mc-V9L" customClass="FoodTableViewCell" customModule="Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SeM-mc-V9L" id="fXH-iC-ygN">
@@ -583,6 +583,7 @@
         <image name="thinkkk" width="20.803611755371094" height="20.803611755371094"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="m9K-6O-HVs"/>
         <segue reference="33l-nV-sPX"/>
         <segue reference="eDg-IN-q9f"/>
     </inferredMetricsTieBreakers>

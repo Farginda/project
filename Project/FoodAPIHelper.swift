@@ -12,7 +12,6 @@ import UIKit
 class FoodAPIHelper {
     static let shared = FoodAPIHelper()
     var score = [Score]()
-    var foodList = [Common]()
     var errorMessage = ""
     
     typealias JSONDictionary = [String]
@@ -42,15 +41,13 @@ class FoodAPIHelper {
                     let response = response as? HTTPURLResponse
                 {
                     print("hoiiii")
-                    let food = try? JSONDecoder().decode([Common].self, from: data)
-//                    completion(food, self.errorMessage)
+                    print(String(bytes: data
+                        , encoding: .utf8))
+                    let food = try JSONDecoder().decode(Food.self, from: data)
+                    completion(food.common, self.errorMessage)
                     print(data)
                     print(response.statusCode)
-                    print("\(NSString(data: data, encoding: String.Encoding.utf8.rawValue))!!!!!!")
-                    DispatchQueue.main.async {
-                        completion(self.foodList, self.errorMessage)
-                    }
-            }
+                }
             } catch {
                 print(error)
             }

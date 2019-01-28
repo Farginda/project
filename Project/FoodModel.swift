@@ -9,7 +9,7 @@
 import Foundation
 
 struct Food: Codable {
-    var common: [String]
+    var common: [Common]
 //    let branded: [Branded]
 }
 
@@ -49,11 +49,11 @@ struct Food: Codable {
 
 struct Common: Codable {
     var foodName, servingUnit: String
-    var servingQty: Int
+    var servingQty: Float
     var commonType: Int?
     var tagID: String
     var photo: CommonPhoto
-    var locale: Locale
+//    var locale: Locale
     
     enum CodingKeys: String, CodingKey {
         case foodName = "food_name"
@@ -61,7 +61,7 @@ struct Common: Codable {
         case servingQty = "serving_qty"
         case commonType = "common_type"
         case tagID = "tag_id"
-        case photo, locale
+        case photo
     }
 }
 
