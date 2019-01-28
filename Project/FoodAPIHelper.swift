@@ -12,15 +12,14 @@ import UIKit
 class FoodAPIHelper {
     static let shared = FoodAPIHelper()
     var score = [Score]()
-    var foodList: [Common] = []
+    var foodList = [Common]()
     var errorMessage = ""
     
     typealias JSONDictionary = [String]
     typealias QueryResult = ([Common]?, String) -> ()
     
-    // 1
     let defaultSession = URLSession(configuration: .default)
-    // 2
+
     var dataTask: URLSessionDataTask?
     
     func getFood(searchTerm: String, completion: @escaping QueryResult) {
@@ -37,14 +36,16 @@ class FoodAPIHelper {
             request.httpMethod = "GET"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             let session = URLSession.shared
-            let task = session.dataTask(with: url) { (data, response, error) -> Void in
+            let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
             do {
                 if let data = data,
-                    let response = response as? HTTPURLResponse,
-                    response.statusCode == 200 {
+                    let response = response as? HTTPURLResponse
+                {
+                    print("hoiiii")
                     let food = try? JSONDecoder().decode([Common].self, from: data)
-                    completion(food, self.errorMessage)
+//                    completion(food, self.errorMessage)
                     print(data)
+                    print(response.statusCode)
                     print("\(NSString(data: data, encoding: String.Encoding.utf8.rawValue))!!!!!!")
                     DispatchQueue.main.async {
                         completion(self.foodList, self.errorMessage)
@@ -58,31 +59,6 @@ class FoodAPIHelper {
     }
         
     }
-        ////////////////////////////////
-//            if let error = error {
-//                self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-//            }
-//
-//                if let data = data,
-//                let response = response as? HTTPURLResponse,
-//                response.statusCode == 200 {
-//                let food = try? JSONDecoder().decode([Common].self, from: data)
-//                completion(food, self.errorMessage)
-//                print(data)
-//                print("datadata")
-////                self.updateSearchResults(data)
-//                print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))
-//
-//                DispatchQueue.main.async {
-//                    completion(self.foodList, self.errorMessage)
-//                }
-//            }
-//        }
-//
-//        dataTask?.resume()
-//    }
-//        }
-    ////////////////////////////////
 
 //    // GET request FOODAPI
 //    func getFood(completion: @escaping ([Common]?) -> Void) {

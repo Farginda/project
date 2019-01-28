@@ -17,14 +17,22 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     var isSearch = false
     var arrFilter = [String]()
     var food: [Common]! = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI(with: food)
+        FoodAPIHelper.shared.getFood(searchTerm: "")
+        { (results, food)  in
+            if let results = results {
+                print("RESULTSLIST \(results)")
+                self.food = results
+            }
+            
+            self.updateUI(with: self.food)
 
         self.tblSearch.dataSource = self
         self.tblSearch.delegate = self
         self.searchBar.delegate = self
+        }
     }
     
     
@@ -36,7 +44,6 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
             self.tblSearch.reloadData()
         }
     }
-//    var arrCountry = ["Ei", "Banaan", "Tomaat", "Chocolade", "Brood"]
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -60,7 +67,6 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
 
-    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         isSearch = true;
     }
@@ -88,16 +94,18 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         } else {
             guard let searchText = searchBar.text, !searchText.isEmpty else { return }
             print("Hallo")
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             FoodAPIHelper.shared.getFood(searchTerm: searchText) { results, errorMessage in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 if let results = results {
+                    print("RESULTSLIST \(results)")
                     self.food = results
+                    self.tblSearch.reloadData()
+                    self.tblSearch.setContentOffset(CGPoint.zero, animated: false)
                 }
                 if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
             }
-            
 //            let getFood = food
-//            let foodText = getFood.foodName
 //            arrFilter = food.filter({ (text) -> Bool in
 //                let tmp: NSString = text as NSString
 //                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
