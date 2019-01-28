@@ -9,8 +9,8 @@
 import UIKit
 
 class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+        
     
-
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tblSearch: UITableView!
     
@@ -31,7 +31,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     func updateUI(with food: [Common]) {
         DispatchQueue.main.async {
             
-            print(food)
+            print("This is your list: \(food)")
             self.food = food
             self.tblSearch.reloadData()
         }

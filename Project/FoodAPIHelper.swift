@@ -45,7 +45,7 @@ class FoodAPIHelper {
                     let food = try? JSONDecoder().decode([Common].self, from: data)
                     completion(food, self.errorMessage)
                     print(data)
-                    print(NSString(data: data, encoding: String.Encoding.utf8.rawValue))
+                    print("\(NSString(data: data, encoding: String.Encoding.utf8.rawValue))!!!!!!")
                     DispatchQueue.main.async {
                         completion(self.foodList, self.errorMessage)
                     }

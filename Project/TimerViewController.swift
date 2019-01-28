@@ -12,6 +12,10 @@ class TimerViewController: UIViewController {
 
     var foodHelper = FoodAPIHelper()
     
+    @IBAction func unwindToTimerViewController(segue:UIStoryboardSegue) {
+        
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         timerLabel.layer.cornerRadius = 90

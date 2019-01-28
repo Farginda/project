@@ -261,7 +261,7 @@
                                 <navigationItem title="Intermittent Fasting Explained" id="xgL-WA-GaK">
                                     <barButtonItem key="leftBarButtonItem" title="Back" id="C8N-e5-FRF">
                                         <connections>
-                                            <segue destination="MNj-aa-xoo" kind="show" id="VBg-lg-FPx"/>
+                                            <segue destination="HaA-yn-zza" kind="unwind" unwindAction="unwindToTimerViewControllerWithSegue:" id="Zrp-bh-2QT"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -285,6 +285,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZzV-88-a0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HaA-yn-zza" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1500" y="-568"/>
         </scene>
@@ -321,7 +322,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="0gs-9q-LMk">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Ezd-QO-lCe"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Ezd-QO-lCe">
+                                            <connections>
+                                                <segue destination="t3D-hh-F60" kind="unwind" unwindAction="unwindToTimerViewControllerWithSegue:" id="pRq-dh-Q1v"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -345,6 +350,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHh-Qh-fzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="t3D-hh-F60" userLabel="Exit" sceneMemberID="exit"/>
                 <searchDisplayController id="FUk-ix-MPB">
                     <connections>
                         <outlet property="delegate" destination="j0A-C7-KcD" id="QIX-os-uei"/>
@@ -433,7 +439,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
-                                <navigationItem title="Scores" id="jR5-rQ-OMc"/>
+                                <navigationItem title="Scores" id="jR5-rQ-OMc">
+                                    <barButtonItem key="leftBarButtonItem" title="Back" id="x2s-E1-Mdt">
+                                        <connections>
+                                            <segue destination="8DW-O4-RXo" kind="show" id="eDg-IN-q9f"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
                             </items>
                         </navigationBar>
                         <prototypes>
@@ -571,9 +583,7 @@
         <image name="thinkkk" width="20.803611755371094" height="20.803611755371094"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="m9K-6O-HVs"/>
         <segue reference="33l-nV-sPX"/>
-        <segue reference="VBg-lg-FPx"/>
-        <segue reference="Ahe-Vk-V2K"/>
+        <segue reference="eDg-IN-q9f"/>
     </inferredMetricsTieBreakers>
 </document>
