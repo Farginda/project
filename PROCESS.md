@@ -63,3 +63,7 @@ Vandaag heb ik verder gewerkt aan alle bugs in mijn app. Een aantal heb ik kunne
 ## Day 16: 28-01-2019
 
 Vandaag heb ik eindelijk de API werkend gekregen in mijn terminal. Ik stuit nu alleen nog op een error waardoor de lijst niet wordt getoond in mijn app. Verder heb ik middels de _unwindtosegue_ methode een manier gemaakt dat de timer altijd door blijft lopen, ook wanneer andere viewcontrollers worden geopend.
+
+## Day 17: 29-01-2019
+
+Na heel veel bugs hier en daar heb ik vandaag eindelijk de searchbar en tableview werkend gekregen! Het enige waar ik nu nog aan moet werken is het doorgeven van de juiste gegevens naar de volgende viewcontroller.
