@@ -16,34 +16,39 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     var isSearch = false
     var filteredList = [String]()
     var food: [Common] = []
-
+    var list : [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tblSearch.register(FoodTableViewCell.classForCoder(), forCellReuseIdentifier: "FoodCell");
+        self.tblSearch.register(FoodTableViewCell.self, forCellReuseIdentifier: "FoodCell")
+        
+
         FoodAPIHelper.shared.getFood(searchTerm: "")
         { (results, food)  in
             if let results = results {
                 print("RESULTSLIST \(results)")
                 self.food = results
             }
-            
-            self.updateUI(with: self.food)
+            print("\n\n\n\n")
 
+            print(self.food)
+            print("\n\n\n\n")
+            self.updateUI(with: self.food)
+        }
+        
         self.tblSearch.dataSource = self
         self.tblSearch.delegate = self
         self.searchBar.delegate = self
-        }
     }
     
     func updateUI(with food: [Common]) {
         DispatchQueue.main.async {
-            
-            print("This is your list: \(food)")
+        
             self.food = food
             self.tblSearch.reloadData()
         }
     }
-    
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -52,32 +57,38 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         if(isSearch) {
             return filteredList.count
         }
-        return food.count;
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
         let getFood = food[indexPath.row]
+        
+        print("\n\n\n\n")
         if(isSearch){
-            cell.textLabel?.text = getFood.foodName
+            print("\n\n\n\n")
+            print(getFood.foodName)
+                
+            print("\n\n\n\n")
+            cell.textLabel?.text = list[indexPath.row]
         } else {
-            cell.textLabel?.text = getFood.foodName
+            cell.textLabel?.text = list[indexPath.row]
         }
         return cell
     }
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        isSearch = true;
+        isSearch = true
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        isSearch = false;
+        isSearch = false
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        isSearch = false;
+        isSearch = false
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -88,7 +99,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.characters.count == 0 {
-            isSearch = false;
+            isSearch = false
             self.tblSearch.reloadData()
         } else {
             guard let searchText = searchBar.text, !searchText.isEmpty else { return }
@@ -100,18 +111,27 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
                 if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
             }
-//                filteredList = food.filter({ (text) -> Bool in
-//                    let tmp: NSString = text as NSString
-//                    let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-//                    return range.location != NSNotFound
-//                })
-
-            if(filteredList.count == 0){
-                isSearch = false;
-            } else {
-                isSearch = true;
+            
+            for item in food {
+                self.list.append(item.foodName)
             }
-            self.tblSearch.reloadData()
+            print("\n\n\n\n")
+            
+            print(self.list)
+            
+            filteredList = list.filter({ (text) -> Bool in
+                let tmp: NSString = text as NSString
+                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+                
+                if(filteredList.count == 0){
+                    isSearch = false
+                } else {
+                    isSearch = true
+                }
+                self.tblSearch.reloadData()
+                
+                return range.location != NSNotFound
+            })
         }
     }
 
