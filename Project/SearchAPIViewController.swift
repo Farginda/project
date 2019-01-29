@@ -20,11 +20,12 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tblSearch.register(FoodTableViewCell.self, forCellReuseIdentifier: "FoodCell")
         self.updateUI(with: self.food)
         self.tblSearch.dataSource = self
         self.tblSearch.delegate = self
         self.searchBar.delegate = self
+        
+
     }
     
     func updateUI(with food: [Common]) {
@@ -34,14 +35,8 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(isSearch) {
-            return filteredList.count
-        }
         return list.count
     }
     
@@ -49,16 +44,16 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
         let getFood = food[indexPath.row]
         
-        print("\n\n\n\n")
-        if(isSearch){
-            print("\n\n\n\n")
-            print(getFood.foodName)
-                
-            print("\n\n\n\n")
-            cell.textLabel?.text = list[indexPath.row]
-        } else {
-            cell.textLabel?.text = list[indexPath.row]
+        if getFood.foodName == "" {
+            cell.textLabel?.text = "Did not find food."
         }
+
+        if(isSearch){
+            cell.textLabel?.text = getFood.foodName
+        } else {
+            cell.textLabel?.text = getFood.foodName
+        }
+        
         return cell
     }
 
@@ -95,28 +90,31 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
                     self.food = results
                 }
                 if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
-            }
             
-            for item in food {
+            
+            for item in self.food {
                 self.list.append(item.foodName)
             }
             print("\n\n\n\n")
             
             print(self.list)
             
-            filteredList = list.filter({ (text) -> Bool in
-                let tmp: NSString = text as NSString
-                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-                
-                if(filteredList.count == 0){
-                    isSearch = false
-                } else {
-                    isSearch = true
+//                self.filteredList = self.list.filter({ (text) -> Bool in
+//                let tmp: NSString = text as NSString
+//                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+//
+//                    if(self.filteredList.count == 0){
+//                        self.isSearch = false
+//                } else {
+//                        self.isSearch = true
+//                }
+                DispatchQueue.main.async {
+                    self.tblSearch.reloadData()
                 }
-                self.tblSearch.reloadData()
                 
-                return range.location != NSNotFound
-            })
+//                return range.location != NSNotFound
+//            })
+            }
         }
     }
 
@@ -126,6 +124,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
             let foodDetailViewController = segue.destination as! FoodDetailViewController
             let index = tblSearch.indexPathForSelectedRow!.row
             foodDetailViewController.item = food[index]
+            print(food[index])
         }
     }
 

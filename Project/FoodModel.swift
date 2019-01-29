@@ -66,12 +66,12 @@ struct Common: Codable {
 }
 
 struct CommonPhoto: Codable {
-    var thumb: String
-    var highres: JSONNull?
+    var thumb: URL
+//    var highres: JSONNull?
     var isUserUploaded: Bool?
     
     enum CodingKeys: String, CodingKey {
-        case thumb, highres
+        case thumb
         case isUserUploaded = "is_user_uploaded"
     }
 }

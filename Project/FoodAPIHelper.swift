@@ -40,7 +40,6 @@ class FoodAPIHelper {
                 if let data = data,
                     let response = response as? HTTPURLResponse
                 {
-                    print("hoiiii")
                     print(String(bytes: data
                         , encoding: .utf8))
                     let food = try JSONDecoder().decode(Food.self, from: data)
@@ -110,12 +109,12 @@ class FoodAPIHelper {
         let task = URLSession.shared.dataTask(with: url) { (data,
             response, error) in
             if let data = data,
-                let image = UIImage(data: data) { completion(image)
+                let image = UIImage(data: data) {
+                completion(image)
             } else {
                 completion(nil)
             }
         }
-        
         task.resume()
     }
 }
