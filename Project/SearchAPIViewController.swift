@@ -16,26 +16,12 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     var isSearch = false
     var filteredList = [String]()
     var food: [Common] = []
-    var list : [String] = []
+    var list: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tblSearch.register(FoodTableViewCell.self, forCellReuseIdentifier: "FoodCell")
-        
-
-        FoodAPIHelper.shared.getFood(searchTerm: "")
-        { (results, food)  in
-            if let results = results {
-                print("RESULTSLIST \(results)")
-                self.food = results
-            }
-            print("\n\n\n\n")
-
-            print(self.food)
-            print("\n\n\n\n")
-            self.updateUI(with: self.food)
-        }
-        
+        self.updateUI(with: self.food)
         self.tblSearch.dataSource = self
         self.tblSearch.delegate = self
         self.searchBar.delegate = self
@@ -43,7 +29,6 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func updateUI(with food: [Common]) {
         DispatchQueue.main.async {
-        
             self.food = food
             self.tblSearch.reloadData()
         }
@@ -106,7 +91,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
             print("Hallo")
             FoodAPIHelper.shared.getFood(searchTerm: searchText) { results, errorMessage in
                 if let results = results {
-                    print("RESULTSLIST \(results)")
+                    print("RESULTSLIST \(results)!!!!!!!")
                     self.food = results
                 }
                 if !errorMessage.isEmpty { print("Search error: " + errorMessage) }

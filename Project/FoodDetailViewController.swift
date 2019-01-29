@@ -10,13 +10,20 @@ import UIKit
 
 class FoodDetailViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    
     var item: Common!
+    var food: [Common] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
 
     }
     
-
-
+    func updateUI() {
+        titleLabel.text = item.foodName
+        }
 }
