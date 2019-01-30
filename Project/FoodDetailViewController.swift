@@ -19,18 +19,11 @@ class FoodDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        FoodAPIHelper.shared.getFood(searchTerm: "") { results, errorMessage in
-            if let results = results {
-                self.food = results
-            }
-            if !errorMessage.isEmpty { print("Search error: " + errorMessage)
-            }
-            self.updateUI()
-        }
+        updateUI()
     }
     
     func updateUI() {
-        titleLabel.text = item.foodName
+        titleLabel.text = item.foodName.uppercased()
         let photo = item.photo
         FoodAPIHelper.shared.getImage(url: photo.thumb) { (image) in
             guard let image = image else { return }

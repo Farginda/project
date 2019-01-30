@@ -124,7 +124,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
             let foodDetailViewController = segue.destination as! FoodDetailViewController
             let index = tblSearch.indexPathForSelectedRow!.row
             foodDetailViewController.item = food[index]
-            print(food[index])
+            print("INDEX NUMMER \(index) !!!!!")
         }
     }
 

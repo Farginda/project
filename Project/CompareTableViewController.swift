@@ -55,7 +55,6 @@ class CompareTableViewController: UITableViewController {
     func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
         let user = score[indexPath.row]
         cell.textLabel?.text = user.name
-//        let hour = Int(user.score)
         cell.detailTextLabel?.text = "\(user.score) uur"
     }
     
