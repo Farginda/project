@@ -14,9 +14,6 @@ class CompareTableViewController: UITableViewController {
     var score = [Score]()
     
     override func viewDidLoad() {
-//        DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//        }
         super.viewDidLoad()
         self.viewWillAppear(true)
         viewScores()
@@ -42,7 +39,7 @@ class CompareTableViewController: UITableViewController {
             if let score = score {
                 self.score = score
                 
-                // reload data after fetching scores
+                // reload data
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

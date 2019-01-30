@@ -41,10 +41,6 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
         let getFood = food[indexPath.row]
-        
-        if getFood.foodName == "" {
-            cell.textLabel?.text = "Did not find food."
-        }
 
         if(isSearch){
             cell.textLabel?.text = getFood.foodName
@@ -76,7 +72,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // function for using searchbar with the correct reloading tableview
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.characters.count == 0 {
+        if searchText.count == 0 {
             isSearch = false
             self.tblSearch.reloadData()
         } else {
@@ -103,7 +99,6 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
             let foodDetailViewController = segue.destination as! FoodDetailViewController
             let index = tblSearch.indexPathForSelectedRow!.row
             foodDetailViewController.item = food[index]
-            print("INDEX NUMMER \(index) !!!!!")
         }
     }
 

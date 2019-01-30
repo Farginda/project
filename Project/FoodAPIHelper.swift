@@ -47,10 +47,9 @@ class FoodAPIHelper {
             } catch {
                 print(error)
             }
-        }
+            }
         task.resume()
-    }
-        
+        }
     }
 
     // get scores from database
