@@ -67,3 +67,7 @@ Vandaag heb ik eindelijk de API werkend gekregen in mijn terminal. Ik stuit nu a
 ## Day 17: 29-01-2019
 
 Na heel veel bugs hier en daar heb ik vandaag eindelijk de searchbar en tableview werkend gekregen! Het enige waar ik nu nog aan moet werken is het doorgeven van de juiste gegevens naar de volgende viewcontroller.
+
+## Day 18: 30-01-2019
+
+Vandaag heb ik eindelijk de app afgemaakt en volledig werkend gekregen. Ik heb kleine verbeteringen aangebracht zowel aan de app design als in de code. Ik heb de overbodige files op de repository verwijderd. Tot slot heb ik nog waar nodig comments toegevoegd in de code.
