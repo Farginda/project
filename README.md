@@ -13,3 +13,7 @@ De app genaamd _GO FAST_ laat gebruikers kennis maken met het nog relatief onbek
   * https://www.raywenderlich.com/567-urlsession-tutorial-getting-started
 * Rester Server:
   * https://github.com/stgm/rester
+
+### License
+
+Copyright © 2019 Farginda Muhammad. Uitgebracht onder de GNU General Public License v3.0.
