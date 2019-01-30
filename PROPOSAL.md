@@ -28,7 +28,7 @@ Door een app te maken die zich voornamelijk richt op het bijhouden van de _inter
   
 #### External Components
 * Online Database: https://ide50-farginda.cs50.io:8080/list
-* Online API Food Tracker: https://www.foodrepo.org/ch/products
+* Online API Food Tracker: https://www.nutritionix.com/business/api
 
 #### Similair Apps
 Soortgelijke apps hebben vaak een strak design en maken gebruik van een uniek ingebouwde timer. Met de kennis van afgelopen maanden is het mogelijk om een soortgelijke app te maken, maar om een unieke design te maken kan nog lastig worden.
