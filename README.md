@@ -13,6 +13,12 @@ De app genaamd _GO FAST_ laat gebruikers kennis maken met het nog relatief onbek
   * https://www.raywenderlich.com/567-urlsession-tutorial-getting-started
 * Rester Server:
   * https://github.com/stgm/rester
+* Additional Information _Intermittent Fasting_:
+  * https://www.healthline.com/nutrition/10-health-benefits-of-intermittent-fasting
+  * http://time.com/5354498/is-intermittent-fasting-healthy/
+  * https://www.health.harvard.edu/blog/intermittent-fasting-surprising-update-2018062914156
+  * https://www.mindbodygreen.com/articles/why-intermittent-fasting-is-the-best-thing-to-ever-happen-to-your-metabolism
+  * https://www.dietdoctor.com/intermittent-fasting
 
 ### License
 
