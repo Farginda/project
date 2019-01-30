@@ -10,12 +10,16 @@ import UIKit
 
 class TimerViewController: UIViewController {
 
-    var foodHelper = FoodAPIHelper()
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var stopTimerButton: UIButton!
+    @IBOutlet weak var FoodInspoButton: UIButton!
+    @IBOutlet weak var infoButton: UIButton!
     
-    @IBAction func unwindToTimerViewController(segue:UIStoryboardSegue) {
-        
-    }
-
+    var foodHelper = FoodAPIHelper()
+    var seconds: Double!
+    var timer = Timer()
+    var isTimerRunning = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         timerLabel.layer.cornerRadius = 90
@@ -23,15 +27,10 @@ class TimerViewController: UIViewController {
         runTimer()
     }
     
-    var seconds: Double!
-    var timer = Timer()
-    var isTimerRunning = false
-    
-    // outlets
-    @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var stopTimerButton: UIButton!
-    @IBOutlet weak var FoodInspoButton: UIButton!
-    @IBOutlet weak var infoButton: UIButton!    
+    // unwind to view with running timer
+    @IBAction func unwindToTimerViewController(segue:UIStoryboardSegue) {
+    }
+  
     // stop timer
     @IBAction func stopButtonPressed(_ sender: UIButton) {
         timer.invalidate()
@@ -47,9 +46,8 @@ class TimerViewController: UIViewController {
     @objc func updateTimer() {
         if seconds < 1.0 {
             timer.invalidate()
-            timer.fire() // check?
+            timer.fire()
             performSegue(withIdentifier: "FinishedSegue", sender: self)
-            // SEND NOTIFICATION OR ALERT
         } else {
             seconds = seconds - 1.0
             timerLabel.text = timeString(time: TimeInterval(seconds))
@@ -64,6 +62,7 @@ class TimerViewController: UIViewController {
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
     
+    // perform segue when button pressed
     @IBAction func foodInspoButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "FoodApiSegue", sender: self)
     }

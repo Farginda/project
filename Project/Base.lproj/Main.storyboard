@@ -191,11 +191,15 @@
                                 <rect key="frame" x="317" y="36" width="42" height="42"/>
                                 <state key="normal" image="thinkkk"/>
                                 <connections>
-                                    <segue destination="LDh-UW-QLk" kind="show" id="BeB-XK-eDY"/>
+                                    <segue destination="LDh-UW-QLk" kind="show" id="zaX-Ac-74i"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Circle-PNG-Picture" translatesAutoresizingMaskIntoConstraints="NO" id="JDY-n7-de0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Circle-PNG-Picture" translatesAutoresizingMaskIntoConstraints="NO" id="JDY-n7-de0">
                                 <rect key="frame" x="137" y="356" width="104" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Ezx-I6-bGw"/>
+                                    <constraint firstAttribute="width" constant="104" id="L1q-gI-vw9"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -205,16 +209,20 @@
                             <constraint firstItem="DJr-PJ-Tg7" firstAttribute="bottom" secondItem="gS1-uw-tSt" secondAttribute="bottom" constant="589" id="8i6-vI-glA"/>
                             <constraint firstItem="gS1-uw-tSt" firstAttribute="trailing" secondItem="DJr-PJ-Tg7" secondAttribute="trailing" constant="-16" id="D1P-Fq-qhH"/>
                             <constraint firstItem="DJr-PJ-Tg7" firstAttribute="trailing" secondItem="JDY-n7-de0" secondAttribute="trailing" constant="134" id="IgK-FL-2zi"/>
+                            <constraint firstItem="DJr-PJ-Tg7" firstAttribute="trailing" secondItem="JDY-n7-de0" secondAttribute="trailing" constant="134" id="KfX-hU-zgW"/>
                             <constraint firstItem="omQ-5H-kWN" firstAttribute="leading" secondItem="DJr-PJ-Tg7" secondAttribute="leading" id="PEh-RM-1JJ"/>
+                            <constraint firstItem="JDY-n7-de0" firstAttribute="top" secondItem="Wap-fH-xFw" secondAttribute="bottom" constant="97" id="Qpp-PC-Fg2"/>
                             <constraint firstItem="KPD-UN-91H" firstAttribute="top" secondItem="Wap-fH-xFw" secondAttribute="bottom" constant="120" id="SKp-fb-fbe"/>
                             <constraint firstItem="NRS-nB-GUx" firstAttribute="leading" secondItem="DJr-PJ-Tg7" secondAttribute="leading" constant="123" id="SXv-yL-i6e"/>
                             <constraint firstItem="JDY-n7-de0" firstAttribute="top" secondItem="Wap-fH-xFw" secondAttribute="bottom" constant="97" id="T1t-E3-XTN"/>
                             <constraint firstItem="Wap-fH-xFw" firstAttribute="leading" secondItem="DJr-PJ-Tg7" secondAttribute="leading" constant="97" id="Unp-9c-Yyv"/>
                             <constraint firstItem="Wap-fH-xFw" firstAttribute="centerX" secondItem="JDY-n7-de0" secondAttribute="centerX" constant="-1" id="Vys-eD-Tm8"/>
+                            <constraint firstItem="JDY-n7-de0" firstAttribute="leading" secondItem="DJr-PJ-Tg7" secondAttribute="leading" constant="137" id="YXT-aQ-YN7"/>
                             <constraint firstItem="omQ-5H-kWN" firstAttribute="trailing" secondItem="DJr-PJ-Tg7" secondAttribute="trailing" id="Z28-gz-vLS"/>
                             <constraint firstItem="gS1-uw-tSt" firstAttribute="leading" secondItem="DJr-PJ-Tg7" secondAttribute="leading" constant="317" id="apH-SI-jy4"/>
                             <constraint firstItem="DJr-PJ-Tg7" firstAttribute="trailing" secondItem="KPD-UN-91H" secondAttribute="trailing" constant="145" id="fl3-vQ-V7q"/>
                             <constraint firstItem="gS1-uw-tSt" firstAttribute="top" secondItem="DJr-PJ-Tg7" secondAttribute="top" constant="16" id="gG6-dL-aO8"/>
+                            <constraint firstItem="NRS-nB-GUx" firstAttribute="top" secondItem="JDY-n7-de0" secondAttribute="bottom" constant="80" id="go2-0X-q1F"/>
                             <constraint firstItem="KPD-UN-91H" firstAttribute="leading" secondItem="DJr-PJ-Tg7" secondAttribute="leading" constant="149" id="jOW-X1-ViO"/>
                             <constraint firstItem="omQ-5H-kWN" firstAttribute="bottom" secondItem="DJr-PJ-Tg7" secondAttribute="bottom" id="pMM-AL-alj"/>
                             <constraint firstAttribute="bottom" secondItem="NRS-nB-GUx" secondAttribute="bottom" constant="20" symbolic="YES" id="tm6-TX-vRN"/>
@@ -277,7 +285,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZzV-88-a0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="HaA-yn-zza" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="-568"/>
+            <point key="canvasLocation" x="1535" y="-653"/>
         </scene>
         <!--SearchAPI View Controller-->
         <scene sceneID="Qe6-fg-baO">
@@ -512,7 +520,6 @@
                                 </state>
                                 <connections>
                                     <action selector="SCButtonPressed:" destination="zn7-6F-zO2" eventType="touchUpInside" id="Awm-dE-C6q"/>
-                                    <segue destination="l7a-o3-eod" kind="show" identifier="CompareSegue" id="SUC-qo-ntP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats text" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbE-Tw-Ptp">
@@ -580,6 +587,7 @@
                         <outlet property="congratsLabel" destination="YbE-Tw-Ptp" id="GaX-ea-1ZQ"/>
                         <outlet property="nameTextField" destination="Gnm-IF-Hh1" id="s4d-u9-t5v"/>
                         <outlet property="shareCompareButton" destination="wxv-2f-3Ut" id="RGq-Yf-LvC"/>
+                        <segue destination="l7a-o3-eod" kind="show" identifier="CompareSegue" id="NUJ-av-4b8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfB-Af-pei" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// struct model to decode user submitted scores
 struct Score: Codable {
     var name: String
     var score: String

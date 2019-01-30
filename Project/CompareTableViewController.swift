@@ -13,16 +13,15 @@ class CompareTableViewController: UITableViewController {
     var seconds: Double!
     var score = [Score]()
     
-    
     override func viewDidLoad() {
-        // reload data after fetching scores
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
         super.viewDidLoad()
         self.viewWillAppear(true)
         viewScores()
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -37,7 +36,7 @@ class CompareTableViewController: UITableViewController {
         return cell
     }
     
-    // shows scores
+    // show scores
     func viewScores() {
         FoodAPIHelper.shared.getScores() { (score) in
             if let score = score {
@@ -58,7 +57,7 @@ class CompareTableViewController: UITableViewController {
         cell.detailTextLabel?.text = "\(user.score) uur"
     }
     
-    // Override to support conditional editing of the table view.
+    // override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

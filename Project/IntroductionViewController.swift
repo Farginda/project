@@ -16,8 +16,6 @@ class IntroductionViewController: UIViewController {
         super.viewDidLoad()
         myButton.layer.cornerRadius = 30
         myButton.clipsToBounds = true
-
-        // Do any additional setup after loading the view.
     }
     
 

@@ -24,8 +24,6 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tblSearch.dataSource = self
         self.tblSearch.delegate = self
         self.searchBar.delegate = self
-        
-
     }
     
     func updateUI(with food: [Common]) {
@@ -35,11 +33,11 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
     }
     
+    // gives the correct cellnames
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
         let getFood = food[indexPath.row]
@@ -76,44 +74,25 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
         isSearch = false
     }
     
+    // function for using searchbar with the correct reloading tableview
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         if searchText.characters.count == 0 {
             isSearch = false
             self.tblSearch.reloadData()
         } else {
             guard let searchText = searchBar.text, !searchText.isEmpty else { return }
-            print("Hallo")
             FoodAPIHelper.shared.getFood(searchTerm: searchText) { results, errorMessage in
                 if let results = results {
-                    print("RESULTSLIST \(results)!!!!!!!")
                     self.food = results
                 }
                 if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
             
-            
             for item in self.food {
                 self.list.append(item.foodName)
             }
-            print("\n\n\n\n")
-            
-            print(self.list)
-            
-//                self.filteredList = self.list.filter({ (text) -> Bool in
-//                let tmp: NSString = text as NSString
-//                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-//
-//                    if(self.filteredList.count == 0){
-//                        self.isSearch = false
-//                } else {
-//                        self.isSearch = true
-//                }
                 DispatchQueue.main.async {
                     self.tblSearch.reloadData()
                 }
-                
-//                return range.location != NSNotFound
-//            })
             }
         }
     }

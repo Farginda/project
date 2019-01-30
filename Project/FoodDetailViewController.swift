@@ -22,6 +22,7 @@ class FoodDetailViewController: UIViewController {
         updateUI()
     }
     
+    // update view with foodtitle and photo
     func updateUI() {
         titleLabel.text = item.foodName.uppercased()
         let photo = item.photo
