@@ -41,7 +41,7 @@ class SearchAPIViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
         let getFood = food[indexPath.row]
-
+        
         if(isSearch){
             cell.textLabel?.text = getFood.foodName
         } else {
