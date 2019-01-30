@@ -8,7 +8,7 @@ De app genaamd _GO FAST_ laat gebruikers kennis maken met het nog relatief onbek
 ### Sources:
 
 * Food Database:
-  * Nutritionix.com
+  * https://www.nutritionix.com/business/api
 * URL Session:
   * https://www.raywenderlich.com/567-urlsession-tutorial-getting-started
 * Rester Server:
