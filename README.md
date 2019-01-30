@@ -22,4 +22,4 @@ De app genaamd _GO FAST_ laat gebruikers kennis maken met het nog relatief onbek
 
 ### License
 
-Copyright © 2019 Farginda Muhammad. Uitgebracht onder de GNU General Public License v3.0.
+Copyright © 2019 Farginda Muhammad. By GNU General Public License v3.0.
