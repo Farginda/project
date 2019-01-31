@@ -1,4 +1,4 @@
-# Final Report
+# Final Report - "GO FAST" - Farginda Muhammad (11320494)
 
 ## Description
 <img src="https://github.com/Farginda/project/blob/master/doc/Schermafbeelding%202019-01-31%20om%2011.43.32.png" width="30%" height="30%"/>
